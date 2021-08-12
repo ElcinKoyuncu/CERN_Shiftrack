@@ -1,0 +1,23 @@
+{
+  "name": "mern-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "mongodb": "^4.1.0",
+    "mongoose": "^5.13.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node config/seeds.js"
+  },
+  "author": "CERN",
+  "license": "ISC"
+}
