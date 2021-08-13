@@ -1,88 +1,58 @@
-import React from 'react';
-import { Formik } from 'formik';
-import * as yup from 'yup';
-import { Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
-
-const schema = yup.object().shape({
-    username: yup.string().required(),
-    password: yup.string().required(),
-  });
-  
+import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import "./Login.css";
 
 const Login = () => {
-    
-    
-      return (
-        <Formik
-          validationSchema={schema}
-          onSubmit={console.log}
-          initialValues={{
-            username: '',
-            password: '',
-          }}
-        >
-          {({
-            handleSubmit,
-            handleChange,
-            handleBlur,
-            values,
-            touched,
-            isValid,
-            errors,
-          }) => (
-            <Form noValidate onSubmit={handleSubmit}>
-              <Row className="mb-2 justify-content-md-center">
-                
-                <Form.Group as={Col} md="2" controlId="validationFormikUsername">
-                  <Form.Label>Username</Form.Label>
-                  <InputGroup hasValidation>
-                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                    <Form.Control
-                      type="text"
-                      placeholder="Username"
-                      aria-describedby="inputGroupPrepend"
-                      name="username"
-                      value={values.username}
-                      onChange={handleChange}
-                      isInvalid={!!errors.username}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      {errors.username}
-                    </Form.Control.Feedback>
-                  </InputGroup>
-                </Form.Group>
-              </Row>
-              <Row className="mb-2 justify-content-md-center">
-                <Form.Group as={Col} md="2" controlId="validationFormik03">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    isInvalid={!!errors.password}
-                  />
-    
-                  <Form.Control.Feedback type="invalid">
-                    {errors.password}
-                  </Form.Control.Feedback>
-                </Form.Group>
-               
-              </Row>
-             <Row className="mb-2 justify-content-md-center">
-                 <Col md="2">
-              <Button type="submit">Login</Button>
-              </Col>
-              </Row>
-            </Form>
-          )}
-        </Formik>
-      );
-    
-    
-               
-}
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+  };
 
+  return (
+    <div className="LoginFormDiv">
+    <Form
+      name="normal_login"
+      className="login-form"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+    >
+      <Form.Item
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+      </Form.Item>
+    </Form>
+    </div>
+  );
+};
 
 export default Login;

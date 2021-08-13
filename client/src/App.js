@@ -1,20 +1,23 @@
 import React from 'react';
 import NavMenu from './Components/Menu/NavMenu';
-import {Container, Row, Col } from 'react-bootstrap';
 import Login from './Components/Auth/Login';
+import { Layout } from 'antd';
+
 
 const App = () => {
+
+  const {Header, Content} = Layout;
   return (
 
     <>
-    <Container fluid>
-  <Row>
-    <Col><NavMenu /></Col>
-  </Row>
-  <Row>
-    <Login/>
-  </Row>
-</Container>
+    <Layout>
+      <Header style={{ background:'white' }}>
+        <NavMenu/>
+      </Header>
+      <Content>
+        <Login/>
+      </Content>
+    </Layout>
     
     </>
   );
