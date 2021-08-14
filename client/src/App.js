@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import DropdownMenu from './Containers/DropdownMenu';
-// import { Layout } from 'antd';
+import Calender from'./Components/Calender/Calender';
 
 
 const App = () => {
@@ -15,8 +14,8 @@ const App = () => {
   
         <Switch>     
           {/* <Route path="/" component={} />
-          <Route path="/" component={} />
           <Route path="/" component={} /> */}
+          <Route path="/calender" component={Calender} />
           <Route path="/" exact component={Login} />
           <Redirect to="/"/>
         </Switch>
