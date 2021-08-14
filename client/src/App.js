@@ -1,26 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import { Layout } from 'antd';
+import DropdownMenu from './Containers/DropdownMenu';
+// import { Layout } from 'antd';
 
 
 const App = () => {
 
-  const {Header, Content} = Layout;
   return (
+    <Router>
+          <div className="App">
+        <NavMenu />
+  
+        <Switch>     
+          {/* <Route path="/" component={} />
+          <Route path="/" component={} />
+          <Route path="/" component={} /> */}
+          <Route path="/" exact component={Login} />
+          <Redirect to="/"/>
+        </Switch>
+        {/* <Footer /> */}
+      </div>
+    </Router>
+    );
 
-    <>
-    <Layout>
-      <Header style={{ background:'white' }}>
-        <NavMenu/>
-      </Header>
-      <Content>
-        <Login/>
-      </Content>
-    </Layout>
-    
-    </>
-  );
 }
 
 export default App;
