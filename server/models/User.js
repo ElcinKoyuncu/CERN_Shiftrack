@@ -25,7 +25,21 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  workHours: [Time.schema]
+  timeIn: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  timeOut: {
+      type: String,
+      required: true,
+      trim: true
+  },
+  hoursWork: {
+    type: String,
+    required: true,
+    trim: true
+}
 });
 
 // set up pre-save middleware to create password
