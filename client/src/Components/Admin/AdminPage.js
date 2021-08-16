@@ -1,12 +1,15 @@
 import React from 'react';
 import Calender from'../Calender/Calender';
-import DropdownMenu from './DropdownMenu';
+import AdminDD from './AdminDD';
+import MakeSchedule from './MakeSchedule';
 
-const Employee = () => {
+const AdminPage = () => {
     return (
         <div> 
-            <DropdownMenu />
-           <h2>Employee</h2> 
+            <AdminDD />
+            <MakeSchedule />
+            
+           <h2>Admin</h2> 
            <h2>Weekly Schedule</h2> 
 
            <div>
@@ -19,4 +22,4 @@ const Employee = () => {
 
 }
 
-export default Employee
+export default AdminPage
