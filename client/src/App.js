@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import DropdownMenu from './Containers/DropdownMenu';
-// import { Layout } from 'antd';
+import Calender from'./Components/Calender/Calender';
+import AdminPage from './Components/Admin/AdminPage';
+import Employee from './Components/Employee/Employee';
 
 
 const App = () => {
@@ -13,10 +14,10 @@ const App = () => {
           <div className="App">
         <NavMenu />
   
-        <Switch>     
-          {/* <Route path="/" component={} />
-          <Route path="/" component={} />
-          <Route path="/" component={} /> */}
+        <Switch>
+        <Route path="/employee" component={Employee} />   
+          <Route path="/admin" component={AdminPage} />
+          <Route path="/calender" component={Calender} />
           <Route path="/" exact component={Login} />
           <Redirect to="/"/>
         </Switch>
