@@ -25,12 +25,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  timeIn: {
+  clockIn: {
     type: String,
     required: true,
     trim: true
   },
-  timeOut: {
+  clockOut: {
       type: String,
       required: true,
       trim: true
