@@ -31,48 +31,47 @@ function Clock() {
   };
 
   return (
-    <div className="" class="">
-      <Container>
-          <Row className="justify-content-md-center">
-          <Col>
-            <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
-                
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Clock In</Form.Label>
-                    <Form.Control type="time" placeholder="Enter HH:MM" name="clockin" onChange={handleChange}/>
-                    <Form.Text className="text-muted">
-                    Select clock for time options
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me in" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Clock Out</Form.Label>
-                    <Form.Control type="time" placeholder="Enter HH:MM" name="clockout" onChange={handleChange} />
-                    <Form.Text className="text-muted">
+    <Container>
+        <Row className="justify-content-md-center">
+            <Col>
+                <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
+                    
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Clock In</Form.Label>
+                        <Form.Control type="time" placeholder="Enter HH:MM" name="clockin" onChange={handleChange}/>
+                        <Form.Text className="text-muted">
                         Select clock for time options
-                    </Form.Text>
+                        </Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Check type="checkbox" label="Check me in" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                    Submit
+                        Submit
                     </Button>
-            </Form>
-            <h5>You clocked in at {formData.clockin} and clocked out at {formData.clockout}</h5>
-            </Card>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Clock Out</Form.Label>
+                        <Form.Control type="time" placeholder="Enter HH:MM" name="clockout" onChange={handleChange} />
+                        <Form.Text className="text-muted">
+                            Select clock for time options
+                        </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                        Submit
+                        </Button>
+                </Form>
+                <h5>You clocked in at {formData.clockin} and clocked out at {formData.clockout}</h5>
+                </Card>
 
-          </Col>
-          
+            </Col>
+        
         </Row>
-      </Container>  
-    </div>
+    </Container>  
+    
   )
 };
 
