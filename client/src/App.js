@@ -20,7 +20,6 @@ const App = () => {
           <Route path="/admin" component={AdminPage} />
           <Route path="/calender" component={Calender} />
           <Route path="/" exact component={Login} />
-          <Route path="/employeewelcome" component={EmployeeWelcome} />
           <Redirect to="/"/>
         </Switch>
         {/* <Footer /> */}
