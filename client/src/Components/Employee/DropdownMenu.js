@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DropdownMenu = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
     
     return (
 <div class="btn-group">
@@ -10,7 +14,7 @@ const DropdownMenu = () => {
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
     <li><a class="dropdown-item" href="/">Payroll</a></li>
-    <li><a class="dropdown-item" href="/">Request Time Off</a></li>
+    <li><a class="dropdown-item" onClick={showModal}>Request Time Off</a></li>
   </ul>
 </div>
 
