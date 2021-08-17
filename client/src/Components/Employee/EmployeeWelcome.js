@@ -1,15 +1,25 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup'
+// import ListGroup from 'react-bootstrap/ListGroup'
+
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Container'
 
 
 const EmployeeWelcome = () => {
     return (
         <div>
-            <ListGroup>
-            <ListGroup.Item>Welcome Employee</ListGroup.Item>
-            <ListGroup.Item>Today's Date</ListGroup.Item>
-            <ListGroup.Item>Location</ListGroup.Item>
-            </ListGroup>
+            <Container fluid>
+            <Row>
+             <Col>Welcome!</Col>
+            </Row>
+            <Row>
+             <Col>Today's Date</Col>
+            </Row>
+            <Row>
+             <Col>Location</Col>
+            </Row>
+            </Container>
         </div>
         
     )
