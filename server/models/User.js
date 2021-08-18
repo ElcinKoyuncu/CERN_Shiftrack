@@ -39,7 +39,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
     trim: true
-}
+  },
+  rto: {
+    type: String,
+    required: true
+  }
 });
 
 // set up pre-save middleware to create password
