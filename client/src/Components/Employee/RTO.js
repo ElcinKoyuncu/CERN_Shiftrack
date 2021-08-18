@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import {
@@ -6,7 +6,6 @@ import {
   Input,
   DatePicker,
 } from 'antd';
-import moment from 'moment';
 
 
 const RTO = () => {
@@ -28,18 +27,30 @@ const RTO = () => {
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
-  function onChange(date, dateString) {
-    console.log(date, dateString);
+  const [form,setForm] = useState ({
+    name: "",
+    lastName:"",
+    DatePicker:"",
+    })
+  const updateForm = (e) => {
+    setForm ({
+          ...form,
+          [e.target.name]: e.target.value
+        })
+        console.log(e.target)
   }
-  
+const handleSubmit = e => {
+    e.preventDefault();
+    console.log(form);
+  };
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
+      <Button style={{float: 'right'}} type="primary" onClick={showModal}>
+        Request Time Off
       </Button>
       <Modal title="Request Time Off" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      <Form
+      <Form onSubmit={handleSubmit}
         labelCol={{
           span: 4,
         }}
@@ -53,14 +64,14 @@ const RTO = () => {
         onValuesChange={onFormLayoutChange}
         size={componentSize}
       >
-        <Form.Item label="Name">
+        <Form.Item onChange ={updateForm} label="Name">
           <Input />
         </Form.Item>
-        <Form.Item label="Last Name">
+        <Form.Item onChange ={updateForm} label="Last Name">
           <Input />
         </Form.Item>
-        <Form.Item onChange={onChange} label="DatePicker">
-          <DatePicker />
+        <Form.Item onChange ={updateForm} label="DatePicker">
+        <DatePicker onChange={(date) => console.log(date)}/>
         </Form.Item>
       </Form>
       </Modal>
