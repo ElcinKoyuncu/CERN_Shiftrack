@@ -4,10 +4,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter} from 'react-router-dom';
 import "./index.css";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider
+} from "@apollo/client";
 
+
+
+const client = new ApolloClient({
+  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  cache: new InMemoryCache()
+});
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+  
+  <ApolloProvider client={client}> <App /></ApolloProvider>
+   
   </BrowserRouter>,
   document.getElementById('root')
 );
