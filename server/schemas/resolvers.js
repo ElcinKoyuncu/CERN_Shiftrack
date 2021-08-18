@@ -2,6 +2,7 @@
  * import requirements for resolvers to use
  */
 const {User, Admin} = require('../models');
+const { signToken } = require('../utils/auth');
 
 
 //! input resolver functions: queries, mutations
@@ -60,9 +61,10 @@ const resolvers = {
       }
 
       const token = signToken(user);
-
-      return { token, user };
+      const adminToken = signToken(admin);
+      return { token, user, adminToken, admin };
     },
+
   },
 
 }; //end of resolvers 
