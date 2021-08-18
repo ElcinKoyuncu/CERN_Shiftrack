@@ -1,11 +1,12 @@
-import './App.css';
+// import './App.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react';
+// import './index.css';
 
 function Clock() {
 
@@ -28,6 +29,7 @@ function Clock() {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(formData);
+    
   };
 
   return (

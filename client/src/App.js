@@ -5,6 +5,7 @@ import Login from './Components/Auth/Login';
 import Calender from'./Components/Calender/Calender';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
+import Clock from './Components/Clock/Clock';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/admin" component={AdminPage} />
           <Route path="/calender" component={Calender} />
           <Route path="/" exact component={Login} />
+          <Route path="/clock" component={Clock} />
           <Redirect to="/"/>
         </Switch>
         {/* <Footer /> */}
