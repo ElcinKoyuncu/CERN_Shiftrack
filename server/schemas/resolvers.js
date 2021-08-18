@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
+=======
+/**
+ * import requirements for resolvers to use
+ */
+const {User, Admin} = require('../models');
+>>>>>>> e32b2ae52fde48e56de0d99b10ae559ad001838b
 
 const resolvers = {
   Query: {
@@ -25,6 +32,7 @@ const resolvers = {
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
 
+<<<<<<< HEAD
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
       }
@@ -40,5 +48,33 @@ const resolvers = {
     },
   },
 };
+=======
+  Query: {
+    user: async (parent, args, context) => {
+    if (context.user) {
+      const user = await User.findById(context.user._id);
+
+      return user;
+    }
+
+    throw new AuthenticationError('User not logged in');
+  },
+  admin: async (parent, args, context) => {
+    if (context.admin) {
+      const user = await Admin.findById(context.user._id);
+
+      return admin;
+    }
+
+    throw new AuthenticationError('Not logged in');
+
+  },
+
+  },
+  Mutation: {
+    
+  }
+}; //end of resolvers 
+>>>>>>> e32b2ae52fde48e56de0d99b10ae559ad001838b
 
 module.exports = resolvers;
