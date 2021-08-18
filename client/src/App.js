@@ -5,7 +5,8 @@ import Login from './Components/Auth/Login';
 import Calender from'./Components/Calender/Calender';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
-import EmployeeWelcome from './Components/Employee/EmployeeWelcome';
+
+
 
 
 const App = () => {
