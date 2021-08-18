@@ -22,8 +22,8 @@ const resolvers = {
 
     //   return { token, user };
     // },
-    login: async (parent, { userName, password }) => {
-      const user = await User.findOne({ userName });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
