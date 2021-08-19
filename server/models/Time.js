@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const timeSchema = new Schema({
-    timeIn: {
+    clockIn: {
       type: String,
       required: true,
       trim: true
     },
-    timeOut: {
+    clockOut: {
         type: String,
         required: true,
         trim: true
