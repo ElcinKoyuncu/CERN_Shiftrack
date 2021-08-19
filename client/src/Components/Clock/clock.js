@@ -1,81 +1,111 @@
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { TimePicker } from 'antd';
+import moment from 'moment';
+import React from 'react';
 
-function Clock() {
 
-  const clockingData = Object.freeze({
-    clockin: "",
-    clockout: ""
-  });
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 
   
-  const [formData, updateFormData] = React.useState(clockingData);
+export default class Clock extends React.Component {
 
-  const handleChange = (e) => {
-    updateFormData({
-      ...formData,
+    constructor(props) {
+        super(props);
 
-      [e.target.name]: e.target.value.trim()
-    });
-  };
+        this.state = {
+            clock: {
+                timeIn: props.timeIn,
+                timeOut: props.timeOut
+            }
+        }
+    }
 
-   
+    handleClockInChanged(event) {
+        var clock        = this.state.clock;
+        clock.timeIn  = this.state.clock.timeIn;
+    
+        this.setState({ clock: clock });
+    }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(formData);
-  };
+    handleClockOutChanged(event) {
+        var clock        = this.state.clock;
+        clock.timeOut  = this.state.clock.timeOut;
+    
+        this.setState({ clock: clock });
+    }
 
-  return (
-    <div className="" class="">
-      <Container>
-          <Row className="justify-content-md-center">
-          <Col>
-            <Card className="clockIn" title="Start of Day" style={{ width: 300 }}>
-                
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Clock In</Form.Label>
-                    <Form.Control type="time" placeholder="Enter HH:MM" name="clockin" onChange={handleChange}/>
-                    <Form.Text className="text-muted">
-                    Select clock for time options
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me in" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Clock Out</Form.Label>
-                    <Form.Control type="time" placeholder="Enter HH:MM" name="clockout" onChange={handleChange} />
-                    <Form.Text className="text-muted">
-                        Select clock for time options
-                    </Form.Text>
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                    Submit
-                    </Button>
-            </Form>
-            <h5>You clocked in at {formData.clockin} and clocked out at {formData.clockout}</h5>
-            </Card>
 
-          </Col>
+    handleSubmit() {
+        console.log(this.state.clock);
+    }
+
+    render() {
+
+        function onChangeIn(time, timeString) {
+            console.log(time, timeString);
+            this.setState({time: timeString});
+            // const timeIn = timeString;
+        }
+      
+        function onChangeOut(time, timeString) {
+          console.log(time, timeString);
+          this.setState({time: timeString});
+        //   const timeOut = timeString;
+        }
+        
+        // const timeIn = onChangeIn.timeString;
+
+        // const timeOut = onChangeOut.timeString;
+      
+        return (
+            
+          <Container>
+              <Row className="justify-content-md-center">
+                  <Col>
+                      <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
+                          
+                      <Form>
+                          <Row>
+                              <Col>
+                                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                                      <Form.Label>Clock In</Form.Label>
+                                      <div>
+                                          <TimePicker onChange={this.handleClockInChanged.bind(this), onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clock.timeIn} />
+                                      </div>
+                                      <Form.Text className="text-muted">
+                                      Select clock for time options
+                                      </Form.Text>
+                                  </Form.Group>
+                              </Col>
+                          </Row>
+                          <Row>
+                              <Col>
+                                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                                      <Form.Label>Clock Out</Form.Label>
+                                      <div>
+                                          <TimePicker onChange={this.handleClockOutChanged.bind(this), onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clock.timeOut} onSubmit={this.handleSubmit}/>
+                                      </div>
+                                      <Form.Text className="text-muted">
+                                          Select clock for time options
+                                      </Form.Text>
+                                  </Form.Group>
+                              </Col>
+                          </Row>
+                      </Form>
+                      <h5>You clocked in at and clocked out at . Today you worked hours</h5>
+                      </Card>
+      
+                  </Col>
+              
+              </Row>
+          </Container>  
           
-        </Row>
-      </Container>  
-    </div>
-  )
-};
-
-  
-export default Clock;
+        )
+    }
+}

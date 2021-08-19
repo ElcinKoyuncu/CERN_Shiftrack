@@ -1,4 +1,4 @@
-// import { Form, Input, Button, Checkbox } from 'antd';
+
 import "./Login.css";
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
@@ -10,7 +10,7 @@ import Auth from '../../utils/auth';
 const Login = () => {
  
   const [login,  {data, loading, error  }] = useMutation(LOGIN_USER);
-  const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   // const [login, { error }] = useMutation(LOGIN_USER);
@@ -21,6 +21,7 @@ const Login = () => {
   };
 
   const handleFormSubmit = async (event) => {
+    console.log(event);
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -36,6 +37,7 @@ const Login = () => {
       });
 
       console.log(data);
+      localStorage.setItem("token" , data.login.token);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
@@ -43,7 +45,7 @@ const Login = () => {
 
     // clear form values
     setUserFormData({
-      username: '',
+      email: '',
       password: '',
     });
   };
@@ -54,16 +56,16 @@ const Login = () => {
           Something went wrong with your login!
         </Alert>
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
-            name='username'
+            placeholder='Your email'
+            name='email'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
@@ -78,7 +80,7 @@ const Login = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-        <Button disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>
+        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
           Login
         </Button>
       </Form>
