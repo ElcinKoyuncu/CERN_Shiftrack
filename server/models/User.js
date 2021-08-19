@@ -28,6 +28,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  role: {
+    type: String,
+    required: true,
+    trim: true
+  },
   rto: {
     type: String,
     required: true
