@@ -2,30 +2,44 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Time = require('./Time');
+//const Time = require('./Time');
 
 const userSchema = new Schema({
-  firstName: {
+  userName: {
     type: String,
     required: true,
     trim: true
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
+  
   password: {
     type: String,
     required: true,
     minlength: 5
   },
-  workHours: [Time.schema]
+  clockIn: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  clockOut: {
+      type: String,
+      required: true,
+      trim: true
+  },
+  hoursWork: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  role: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  rto: {
+    type: String,
+    required: true
+  }
 });
 
 // set up pre-save middleware to create password
