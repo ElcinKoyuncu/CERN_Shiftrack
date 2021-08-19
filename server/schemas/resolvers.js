@@ -47,22 +47,40 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      const admin = await Admin.findOne({email});
+      
 
-      if (!user || !admin) {
+      if (!user) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      const correctAdminPw = await admin.isCorrectPassword(password);
+      
 
-      if (!correctPw || !correctAdminPw) {
+      if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
-      const adminToken = signToken(admin);
-      return { token, user, adminToken, admin };
+      
+      return { token, user };
+
+    },
+    login: async (parent, { email, password }) => {
+      const admin = await Admin.findOne({email});
+
+      if (!admin) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await admin.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const adminToken = signToken({...admin, type:"admin"});
+      return {adminToken, admin };
+      
     },
 
   },
