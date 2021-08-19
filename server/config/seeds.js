@@ -1,10 +1,12 @@
 const db = require('./connection');
 const { User,Admin, Time } = require('../models');
 
+db.once('open', async () => {
 const userSeed = [
     {
-        userName: 'test1',
-        password: 'test1',
+        username: 'test1',
+        password:' test1',
+        email:'test1@test1.com',
         clockIn: '10.30',
         clockOut: '11.30',
         hoursWork: 10,
@@ -12,15 +14,27 @@ const userSeed = [
         rto: 1,
     },
   ];
+await User.deleteMany({})
+    await User.insertMany(userSeed);
+
+    const adminSeed = [
+      {
+        firstName: 'testAdmin1 firstname',
+        lastName: 'testAdmin1 lastname',
+        username:'testAdmin1',
+        password:'testAdmin1',
+        email:'testAdmin1@testAdmin1.com',
+        clockIn: '10.30',
+        clockOut: '11.30',
+        hoursWork: 10,
+        role: 'manager',
+        rto: 1,
+          
+      },
+    ];
+  await Admin.deleteMany({})
+      await Admin.insertMany(adminSeed)
   
-  db.User.deleteMany({})
-    .then(() => db.User.collection.insertMany(shiftrackSeed))
-    .then((data) => {
-      console.log(data.result.n + ' user added!');
-      process.exit(0);
-    })
-    .catch((err) => {
-      console.error(err);
-      process.exit(1);
-    });
-  
+  process.exit();
+
+})
