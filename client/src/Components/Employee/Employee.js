@@ -1,13 +1,16 @@
 import React from 'react';
 import Calender from'../Calender/Calender';
 import DropdownMenu from './DropdownMenu';
+import RTO from './RTO';
+import Clock from '../Clock/Clock';
 
 const Employee = () => {
     return (
         <div> 
-            <DropdownMenu />
            <h2>Employee</h2> 
-           <h2>Weekly Schedule</h2> 
+           <RTO />
+           <h2>Clock in/Clock out</h2> 
+           <Clock />
 
            <div>
                <Calender />
