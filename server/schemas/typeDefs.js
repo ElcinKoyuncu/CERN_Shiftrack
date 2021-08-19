@@ -15,13 +15,13 @@ type User {
   }
   
 type Query {
-    me: User
-  }
+  me: User
+}
 
-  type Auth {
+type Auth {
     token: ID!
     user: User
-  }
+}
 
 
 `;

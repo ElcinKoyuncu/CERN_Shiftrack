@@ -27,18 +27,18 @@ const adminSchema = new Schema({
   },
   clockIn: {
     type: String,
-    required: true,
-    trim: true
+    required: true
+    
   },
   clockOut: {
       type: String,
-      required: true,
-      trim: true
+      required: true
+      
   },
   hoursWork: {
     type: String,
-    required: true,
-    trim: true
+    required: true
+  
   },
   rto: {
     type: String,
