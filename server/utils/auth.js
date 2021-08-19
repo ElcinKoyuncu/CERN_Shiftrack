@@ -16,10 +16,15 @@ module.exports = {
     if (!token) {
       return req;
     }
-
+    
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
+      if(data.type == "admin"){
+        req.admin = data;
+      }else{
+        req.user = data;
+      }
+        
     } catch {
       console.log('Invalid token');
     }

@@ -5,21 +5,12 @@ const bcrypt = require('bcrypt');
 //const Time = require('./Time');
 
 const userSchema = new Schema({
-  firstName: {
+  userName: {
     type: String,
     required: true,
     trim: true
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
+  
   password: {
     type: String,
     required: true,
@@ -27,18 +18,15 @@ const userSchema = new Schema({
   },
   clockIn: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   clockOut: {
       type: String,
-      required: true,
-      trim: true
+      required: true
   },
   hoursWork: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   rto: {
     type: String,
