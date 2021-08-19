@@ -1,6 +1,7 @@
 /**
  * import requirements for resolvers to use
  */
+ const { AuthenticationError } = require('apollo-server-express');
 const {User, Admin} = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express')
