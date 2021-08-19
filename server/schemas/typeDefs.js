@@ -46,10 +46,10 @@ type Query {
     admin: Admin
   }
 
-  type Auth {
+type Auth {
     token: ID!
     user: User
-  }
+}
 
 
 `;
