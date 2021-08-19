@@ -1,4 +1,4 @@
-// import './App.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Container';
@@ -39,6 +39,7 @@ export default class Clock extends React.Component {
     
         this.setState({ clock: clock });
     }
+
 
     handleSubmit() {
         console.log(this.state.clock);

@@ -1,11 +1,17 @@
 import React from "react";
-import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, isSameDay, parse, subMonths, addMonths } from "date-fns";
+import { format, startOfWeek, addDays, 
+startOfMonth, endOfMonth, endOfWeek, isSameMonth, 
+isSameDay, parse, subMonths, addMonths } from "date-fns";
 import "./calender.css";
 
 class Calendar extends React.Component {
   state = {
     currentMonth: new Date(),
     selectedDate: new Date()
+  };
+
+  onDateClick = day => {
+    this.props.selectDate(day);
   };
 
   renderHeader() {
