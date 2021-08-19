@@ -13,15 +13,15 @@ import {
 
 
 const client = new ApolloClient({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache()
 });
 ReactDOM.render(
-  <BrowserRouter>
+  <ApolloProvider client={client}><BrowserRouter> <App /> </BrowserRouter></ApolloProvider>,
   
-  <ApolloProvider client={client}> <App /></ApolloProvider>
+  
    
-  </BrowserRouter>,
+ 
   document.getElementById('root')
 );
 

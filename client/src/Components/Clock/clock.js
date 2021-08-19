@@ -48,13 +48,11 @@ export default class Clock extends React.Component {
 
         function onChangeIn(time, timeString) {
             console.log(time, timeString);
-            this.setState({time: timeString});
             // const timeIn = timeString;
         }
       
         function onChangeOut(time, timeString) {
           console.log(time, timeString);
-          this.setState({time: timeString});
         //   const timeOut = timeString;
         }
         

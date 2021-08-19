@@ -3,7 +3,7 @@
  */
 const {User, Admin} = require('../models');
 const { signToken } = require('../utils/auth');
-
+const { AuthenticationError } = require('apollo-server-express')
 
 //! input resolver functions: queries, mutations
 const resolvers = {
