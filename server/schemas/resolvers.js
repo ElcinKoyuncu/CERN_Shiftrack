@@ -10,22 +10,23 @@ const resolvers = {
 
   Query: {
     user: async (parent, args, context) => {
-    if (context.user) {
-      const user = await User.findById(context.user._id);
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
 
-      return user;
-    }
-
-    throw new AuthenticationError('User not logged in');
-  },
-    admin: async (parent, args, context) => {
-      if (context.admin) {
-        const user = await Admin.findById(context.user._id);
-
-        return admin;
+        return userData;
       }
 
       throw new AuthenticationError('Not logged in');
+  },
+    admin: 
+      async (parent, args, context) => {
+        if (context.admin) {
+          const adminData = await Admin.findOne({ _id: context.admin._id }).select('-__v -password');
+  
+          return adminData;
+        }
+  
+        throw new AuthenticationError('Not logged in');
 
     },
 
