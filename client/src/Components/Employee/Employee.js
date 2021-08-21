@@ -1,5 +1,5 @@
 import React from 'react';
-import Calender from'../Calender/Calender';
+import Calender from'../Calendar/Calender';
 import DropdownMenu from './DropdownMenu';
 import RTO from './RTO';
 import Clock from '../Clock/Clock';

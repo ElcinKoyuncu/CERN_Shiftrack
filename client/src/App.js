@@ -2,10 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import Calender from'./Components/Calender/Calender';
+import BigCalendar from'./Components/Calendar/BigCalendar';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
-import EmployeeWelcome from './Components/Employee/EmployeeWelcome';
 
 
 const App = () => {
@@ -18,7 +17,7 @@ const App = () => {
         <Switch>
         <Route path="/employee" component={Employee} />   
           <Route path="/admin" component={AdminPage} />
-          <Route path="/calender" component={Calender} />
+          <Route path="/calendar" component={BigCalendar} />
           <Route path="/" exact component={Login} />
           <Redirect to="/"/>
         </Switch>
