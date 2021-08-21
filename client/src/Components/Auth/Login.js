@@ -81,14 +81,8 @@ export default Login;
 //   const [validated] = useState(false);
 //   const [showAlert, setShowAlert] = useState(false);
 //   const [login, { loading, error }] = useMutation
-//   (LOGIN_USER, {
-//     onCompleted({ login }) {
-//       console.log("register :>> ", login, loading, error);
-//     },
-//     onError(error) {
-//       console.error("error :>>", error.message);
-//     },
-//   });
+//   (LOGIN_USER);
+ 
 //   useEffect(() => {
 //     if (error) {
 //       setShowAlert(true);

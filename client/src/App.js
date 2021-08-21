@@ -27,18 +27,18 @@ function Routes() {
   if (
     isAuthenticated
   ){
-    return <>
-     <Route path="/employee" component={Employee} />   
-            <Route path="/admin" component={AdminPage} />
-            <Route path="/calender" component={Calender} />
+    return <Switch>
+     <Route path="/employee" exact component={Employee} />   
+            <Route path="/admin" exact component={AdminPage} />
+            <Route path="/calender" exact component={Calender} />
             <Redirect to="/employee"/>
-            </>
+            </Switch>
   }else {
-    return <>
+    return <Switch>
  <Route path="/" exact component={Login} />
 
 <Redirect to="/"/>
-    </>
+    </Switch>
   }
 }
 
@@ -53,9 +53,9 @@ function App() {
             <div className="App">
           <NavMenu />
   
-          <Switch>
+         
            <Routes />
-          </Switch>
+         
           {/* <Footer /> */}
         </div>
         </>
