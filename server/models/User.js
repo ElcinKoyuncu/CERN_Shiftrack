@@ -1,42 +1,38 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const { ObjectId } = require('mongodb');
 //const Time = require('./Time');
 
 const userSchema = new Schema({
+  
   username: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
-  
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
+  },
   password: {
     type: String,
     required: true,
-    minlength: 5
+    minlength: 5,
   },
-  clockIn: {
-    type: String,
-    required: true
-  },
-  clockOut: {
-      type: String,
-      required: true
-  },
-  hoursWork: {
-    type: String,
-    required: true
-  },
+ 
   role: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
-  rto: {
-    type: String,
-    required: true
-  }
+  rto: [{
+    type: Schema.Types.ObjectId, 
+    ref: "Rto"
+  }]
+ 
 });
 
 // set up pre-save middleware to create password
@@ -54,7 +50,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 //Exporting User model
 module.exports = User;

@@ -1,6 +1,7 @@
 /**
  * import requirements for resolvers to use
  */
+ 
 const {User, Admin} = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express')
@@ -10,22 +11,23 @@ const resolvers = {
 
   Query: {
     user: async (parent, args, context) => {
-    if (context.user) {
-      const user = await User.findById(context.user._id);
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
 
-      return user;
-    }
-
-    throw new AuthenticationError('User not logged in');
-  },
-    admin: async (parent, args, context) => {
-      if (context.admin) {
-        const user = await Admin.findById(context.user._id);
-
-        return admin;
+        return userData;
       }
 
       throw new AuthenticationError('Not logged in');
+  },
+    admin: 
+      async (parent, args, context) => {
+        if (context.admin) {
+          const adminData = await Admin.findOne({ _id: context.admin._id }).select('-__v -password');
+  
+          return adminData;
+        }
+  
+        throw new AuthenticationError('Not logged in');
 
     },
 
@@ -50,14 +52,14 @@ const resolvers = {
       
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect credentials 1');
       }
 
       const correctPw = await user.isCorrectPassword(password);
       
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect credentials 2');
       }
 
       const token = signToken(user);
@@ -65,7 +67,7 @@ const resolvers = {
       return { token, user };
 
     },
-    login: async (parent, { email, password }) => {
+    adminLogin: async (parent, { email, password }) => {
       const admin = await Admin.findOne({email});
 
       if (!admin) {

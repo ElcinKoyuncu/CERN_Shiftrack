@@ -11,6 +11,17 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+export const LOGIN_ADMIN = gql`
+  mutation adminLogin($email: String!, $password: String!) {
+    adminLogin(email: $email, password: $password) {
+      token
+      user {
+        _id
+       email
+      }
+    }
+  }
+`;
 
 export const ADD_USER = gql`
   mutation addUser($email: String!, $password: String!) {
