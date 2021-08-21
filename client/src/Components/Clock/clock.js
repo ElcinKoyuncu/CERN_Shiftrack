@@ -26,36 +26,16 @@ export default class Clock extends React.Component {
         }
     }
 
-    handleClockInChanged(event) {
-        var clock        = this.state.clock;
-        clock.timeIn  = this.state.clock.timeIn;
-    
-        this.setState({ clock: clock });
-    }
-
-    handleClockOutChanged(event) {
-        var clock        = this.state.clock;
-        clock.timeOut  = this.state.clock.timeOut;
-    
-        this.setState({ clock: clock });
-    }
-
-
-    handleSubmit() {
-        console.log(this.state.clock);
-    }
 
     render() {
 
         function onChangeIn(time, timeString) {
             console.log(time, timeString);
-            this.setState({time: timeString});
             // const timeIn = timeString;
         }
       
         function onChangeOut(time, timeString) {
           console.log(time, timeString);
-          this.setState({time: timeString});
         //   const timeOut = timeString;
         }
         
@@ -76,7 +56,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock In</Form.Label>
                                       <div>
-                                          <TimePicker onChange={this.handleClockInChanged.bind(this), onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clock.timeIn} />
+                                          <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
                                       </div>
                                       <Form.Text className="text-muted">
                                       Select clock for time options
@@ -89,7 +69,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock Out</Form.Label>
                                       <div>
-                                          <TimePicker onChange={this.handleClockOutChanged.bind(this), onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clock.timeOut} onSubmit={this.handleSubmit}/>
+                                          <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}/>
                                       </div>
                                       <Form.Text className="text-muted">
                                           Select clock for time options

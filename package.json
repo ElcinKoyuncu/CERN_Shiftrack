@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "bootstrap": "^5.1.0"
+    "bootstrap": "^5.1.0",
+    "graphql-tag": "^2.12.5"
   }
 }
