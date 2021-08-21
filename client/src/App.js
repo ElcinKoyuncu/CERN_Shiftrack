@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import Calender from'./Components/Calender/Calender';
+import MyCalendar from'./Components/Calendar/MyCalendar';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
 
@@ -30,7 +30,7 @@ function Routes() {
     return <Switch>
      <Route path="/employee" exact component={Employee} />   
             <Route path="/admin" exact component={AdminPage} />
-            <Route path="/calender" exact component={Calender} />
+            <Route path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
             </Switch>
   }else {
