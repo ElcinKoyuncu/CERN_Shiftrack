@@ -5,7 +5,7 @@ db.once('open', async () => {
 const userSeed = [
     {
         username: 'test1',
-        password:' test1',
+        password:' test123',
         email:'test1@test1.com',
         clockIn: '10.30',
         clockOut: '11.30',

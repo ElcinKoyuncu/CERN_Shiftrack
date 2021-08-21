@@ -2,7 +2,7 @@ import React from 'react';
 import Calender from'../Calender/Calender';
 import DropdownMenu from './DropdownMenu';
 import RTO from './RTO';
-import Clock from '../Clock/Clock';
+import Clock from '../Clock/clock';
 
 const Employee = () => {
     return (

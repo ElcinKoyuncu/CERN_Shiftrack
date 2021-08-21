@@ -52,7 +52,5 @@ export const getMe = (token) => {
   
   // make a search to users api
  
-  export const searchUsers = (query) => {
-    return fetch(`=${query}`);
-  };
+
   
