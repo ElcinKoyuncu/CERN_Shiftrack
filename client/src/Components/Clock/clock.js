@@ -28,14 +28,14 @@ export default class Clock extends React.Component {
 
     handleClockInChanged(event) {
         var clock        = this.state.clock;
-        clock.timeIn  = this.state.clock.timeIn;
+        // clock.timeIn  = this.state.clock.timeIn;
     
         this.setState({ clock: clock });
     }
 
     handleClockOutChanged(event) {
         var clock        = this.state.clock;
-        clock.timeOut  = this.state.clock.timeOut;
+        // clock.timeOut  = this.state.clock.timeOut;
     
         this.setState({ clock: clock });
     }
