@@ -7,6 +7,8 @@ type Mutation {
     lastName: String!
     email: String!
     password: String!
+    role: String!
+    username: String!
   ): Auth
   
   updateUser(
@@ -14,9 +16,11 @@ type Mutation {
     lastName: String
     email: String
     password: String
+    role: String
   ): Auth
 
   login(email: String!, password: String!): Auth
+  adminLogin(email: String!, password: String!): Auth
   
 }
 
@@ -25,11 +29,8 @@ type User {
     username: String!
     password: String
     email: String
-    clockIn: String
-    clockOut: String
-    hoursWork: String
     role: String
-    rto: String
+   
   }
 
   type Admin {

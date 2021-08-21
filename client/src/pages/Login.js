@@ -1,113 +1,84 @@
-// import React, { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { Link } from 'react-router-dom';
-
-// import { LOGIN } from '../utils/mutations';
-
-// import { LOGIN_USER } from '../utils/mutations';
-
-// import Auth from '../utils/auth';
-
-// function Login(props) {
-//   const [formState, setFormState] = useState({ email: '', password: '' });
-
-//   const [login, { error }] = useMutation(LOGIN);
-
-//   const [login, { error }] = useMutation(LOGIN_USER);
 
 
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-//     try {
-//       const mutationResponse = await login({
-//         variables: { email: formState.email, password: formState.password },
-//       });
-//       const token = mutationResponse.data.login.token;
-//       Auth.login(token);
-//     } catch (e) {
-//       console.log(e);
-//     }
+// const Login = () => {
+ 
+//   const [login,  {data, loading, error  }] = useMutation(LOGIN_USER);
+//   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+//   const [validated] = useState(false);
+//   const [showAlert, setShowAlert] = useState(false);
+//   // const [login, { error }] = useMutation(LOGIN_USER);
+
+//   const handleInputChange = (event) => {
+//     const { name, value } = event.target;
+//     setUserFormData({ ...userFormData, [name]: value });
 //   };
 
-const Login = () => {
- 
-  const [login,  {data, loading, error  }] = useMutation(LOGIN_USER);
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  // const [login, { error }] = useMutation(LOGIN_USER);
+//   const handleFormSubmit = async (event) => {
+//     console.log(event);
+//     event.preventDefault();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
+//     // check if form has everything (as per react-bootstrap docs)
+//     const form = event.currentTarget;
+//     if (form.checkValidity() === false) {
+//       event.preventDefault();
+//       event.stopPropagation();
+//     }
 
-  const handleFormSubmit = async (event) => {
-    console.log(event);
-    event.preventDefault();
+//     try {
+//       const { data } = await login({
+//         variables: { ...userFormData },
+//       });
 
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+//       console.log(data);
+//       localStorage.setItem("token" , data.login.token);
+//       Auth.login(data.login.token);
+//     } catch (e) {
+//       console.error(e);
+//     }
 
-    try {
-      const { data } = await login({
-        variables: { ...userFormData },
-      });
+//     // clear form values
+//     setUserFormData({
+//       email: '',
+//       password: '',
+//     });
+//   };
+//   return (
+//     <>
+//       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+//         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+//           Something went wrong with your login!
+//         </Alert>
+//         <Form.Group>
+//           <Form.Label htmlFor='email'>Email</Form.Label>
+//           <Form.Control
+//             type='text'
+//             placeholder='Your email'
+//             name='email'
+//             onChange={handleInputChange}
+//             value={userFormData.email}
+//             required
+//           />
+//           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+//         </Form.Group>
 
-      console.log(data);
-      localStorage.setItem("token" , data.login.token);
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
+//         <Form.Group>
+//           <Form.Label htmlFor='password'>Password</Form.Label>
+//           <Form.Control
+//             type='password'
+//             placeholder='Your password'
+//             name='password'
+//             onChange={handleInputChange}
+//             value={userFormData.password}
+//             required
+//           />
+//           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+//         </Form.Group>
+//         <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
+//           Login
+//         </Button>
+//       </Form>
+//     </>
+//   );
+// };
 
-    // clear form values
-    setUserFormData({
-      email: '',
-      password: '',
-    });
-  };
-  return (
-    <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your login!
-        </Alert>
-        <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your email'
-            name='email'
-            onChange={handleInputChange}
-            value={userFormData.email}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
-        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
-          Login
-        </Button>
-      </Form>
-    </>
-  );
-};
-
-export default Login;
+// export default Login;
