@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
-import Calendar from'./Components/Calendar/Calendar';
+import MyCalendar from'./Components/Calendar/MyCalendar';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
 
@@ -27,18 +27,18 @@ function Routes() {
   if (
     isAuthenticated
   ){
-    return <>
-     <Route path="/employee" component={Employee} />   
-            <Route path="/admin" component={AdminPage} />
-            <Route path="/calendar" component={Calendar} />
+    return <Switch>
+     <Route path="/employee" exact component={Employee} />   
+            <Route path="/admin" exact component={AdminPage} />
+            <Route path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
-            </>
+            </Switch>
   }else {
-    return <>
+    return <Switch>
  <Route path="/" exact component={Login} />
 
 <Redirect to="/"/>
-    </>
+    </Switch>
   }
 }
 
@@ -53,10 +53,9 @@ function App() {
             <div className="App">
           <NavMenu />
   
-          <Switch>
+         
            <Routes />
-
-          </Switch>
+         
           {/* <Footer /> */}
         </div>
         </>

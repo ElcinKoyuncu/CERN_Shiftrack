@@ -8,7 +8,7 @@ import {
 } from 'antd';
 
 
-const RTO = () => {
+const RTO = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -17,6 +17,13 @@ const RTO = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    props.onRTORequested({
+      id:Date.now(),
+      title:"RTO",
+      start:start.toDate(),
+      end:end.toDate(),
+      allDay: true,
+    }) 
   };
 
   const handleCancel = () => {
@@ -27,21 +34,11 @@ const RTO = () => {
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
-  const [form,setForm] = useState ({
-    name: "",
-    lastName:"",
-    DatePicker:"",
-    })
-  const updateForm = (e) => {
-    setForm ({
-          ...form,
-          [e.target.name]: e.target.value
-        })
-        console.log(e.target)
-  }
+const [start, setStart] = useState(null)
+const [end, setEnd] = useState(null)
 const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
+    console.log(start,end);
   };
 
   return (
@@ -64,14 +61,11 @@ const handleSubmit = e => {
         onValuesChange={onFormLayoutChange}
         size={componentSize}
       >
-        <Form.Item onChange ={updateForm} label="Name">
-          <Input />
+        <Form.Item label="start">
+        <DatePicker onChange={setStart} value={start} />
         </Form.Item>
-        <Form.Item onChange ={updateForm} label="Last Name">
-          <Input />
-        </Form.Item>
-        <Form.Item onChange ={updateForm} label="DatePicker">
-        <DatePicker onChange={(date) => console.log(date)}/>
+        <Form.Item label="end">
+        <DatePicker onChange={setEnd} value={end} />
         </Form.Item>
       </Form>
       </Modal>
