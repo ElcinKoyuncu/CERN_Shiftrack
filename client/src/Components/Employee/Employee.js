@@ -27,4 +27,4 @@ const Employee = () => {
 
 }
 
-export default Employee
+export default Employee;

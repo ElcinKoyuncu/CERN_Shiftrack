@@ -15,7 +15,7 @@ const NavMenu = ()=> {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/calender">
+            <Link to="/Calendar">
               Calendar
             </Link>
           </li>
@@ -32,7 +32,8 @@ const NavMenu = ()=> {
 
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="#home"><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
+            <Navbar.Brand href="#home">
+              <img className= "pic" src = "http://localhost:3000/assets/cern.png" alt="logo"/>
             </Navbar.Brand>
             <div class="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

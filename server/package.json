@@ -14,7 +14,8 @@
     "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.0",
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "react-flow-renderer": "^9.6.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
