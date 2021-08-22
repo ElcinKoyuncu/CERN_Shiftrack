@@ -1,5 +1,5 @@
 import React from 'react';
-import Calender from'../Calender/Calender';
+import Calendar from'../Calendar/Calendar';
 
 const AdminPage = () => {
     return (
@@ -7,7 +7,7 @@ const AdminPage = () => {
            <h2>Admin</h2> 
 
            <div>
-               <Calender />
+               <Calendar />
            </div>
      
             

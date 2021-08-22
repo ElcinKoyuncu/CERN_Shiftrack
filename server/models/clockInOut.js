@@ -1,25 +1,28 @@
 const { Schema, model } = require('mongoose');
 
 
-const rtoSchema = new Schema({
+const clockInOutSchema = new Schema({
   
-  from: {
+  clockIn: {
     type: Date,
     required: true,
    
   },
-  to: {
+  clockOut: {
     type: Date,
-    required: true,
+    
     
   },
- 
+ userId: {
+         type: mongoose.Types.ObjectId,
+         ref: "User"
+    }
  
 });
 
 
 
-const Rto = model('Rto', rtoSchema);
+const clockInOut = model('Rto', clockInOutSchema);
 
 //Exporting User model
-module.exports = Rto;
+module.exports = clockInOut;

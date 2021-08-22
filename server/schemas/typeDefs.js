@@ -42,6 +42,18 @@ type User {
     clockOut: String
 
   }
+  type clockInOut {
+    _id: ID
+    clockIn: String
+    clockOut: String
+    userId: String
+  }
+  type Rto {
+    _id: ID
+    from: String
+    to: String
+    userId: String
+  }
   
 type Query {
     user: User
