@@ -1,13 +1,15 @@
-import React from 'react';
-import Calendar from'../Calendar/Calendar';
+import React, {useState} from 'react';
+import MyCalendar from'../Calendar/MyCalendar';
+import Schedule from '../Schedule/Schedule';
 
 const AdminPage = () => {
+    const [events, setEvents] = useState([])
     return (
         <div> 
-           <h2>Admin</h2> 
 
            <div>
-               <Calendar />
+               <Schedule />
+               <MyCalendar events={events} />
            </div>
      
             

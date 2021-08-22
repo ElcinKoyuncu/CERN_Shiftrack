@@ -34,12 +34,12 @@ const RTO = (props) => {
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
-const [start, setStart] = useState(null)
-const [end, setEnd] = useState(null)
-const handleSubmit = e => {
-    e.preventDefault();
-    console.log(start,end);
-  };
+  const [start, setStart] = useState(null)
+  const [end, setEnd] = useState(null)
+  const handleSubmit = e => {
+      e.preventDefault();
+      console.log(start,end);
+    };
 
   return (
     <>
@@ -74,4 +74,4 @@ const handleSubmit = e => {
 };
 
 
-export default RTO
+export default RTO;

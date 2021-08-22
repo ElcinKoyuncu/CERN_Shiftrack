@@ -19,7 +19,7 @@ const rtoSchema = new Schema({
 
 
 
-const Rto = model('Rto', rtoSchema);
+const RTO = model('RTO', rtoSchema);
 
 //Exporting User model
-module.exports = Rto;
+module.exports = RTO;

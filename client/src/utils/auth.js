@@ -25,10 +25,13 @@ class AuthService {
       return false;
     }
   }
-
+  
   getToken() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
+    if((localStorage.getItem("id_token"))){
+      return localStorage.getItem('id_token');
+    }
+  return null;
   }
 
   login(idToken) {
