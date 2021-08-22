@@ -22,6 +22,7 @@ const NavMenu = ()=> {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
+            <Nav.Link href="/CompanyPage">COMPANY</Nav.Link>
               <Nav.Link href="/MyCalendar">CALENDAR</Nav.Link>
               <Nav.Link href="/" onClick={() => Auth.logout()}>LOGOUT</Nav.Link>
             </Nav>
