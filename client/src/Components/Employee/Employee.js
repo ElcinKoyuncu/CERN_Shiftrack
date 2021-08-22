@@ -3,6 +3,7 @@ import MyCalendar from'../Calendar/MyCalendar';
 // import DropdownMenu from './DropdownMenu';
 import RTO from './RTO';
 import Clock from '../Clock/clock';
+import "./employee.css";
 
 import EmployeeWelcome from './EmployeeWelcome'
 
@@ -13,12 +14,11 @@ const Employee = () => {
         <div> 
             <EmployeeWelcome />
             <br></br>
-          
-           <RTO onRTORequested={event => setEvents([...events,event])}/>
-           
            <Clock />
            <br></br>
            <br></br>
+           <RTO onRTORequested={event => setEvents([...events,event])}/>
+           
 
            <div>
                <MyCalendar events={events} />
@@ -30,4 +30,4 @@ const Employee = () => {
 
 }
 
-export default Employee
+export default Employee;
