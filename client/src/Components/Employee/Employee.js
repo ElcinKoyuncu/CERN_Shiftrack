@@ -12,17 +12,20 @@ const Employee = () => {
     return (
         <div> 
             <EmployeeWelcome />
-           <h2>Employee</h2> 
+            <br></br>
+          
            <RTO onRTORequested={event => setEvents([...events,event])}/>
-           <h2>Clock in/Clock out</h2> 
+           
            <Clock />
+           <br></br>
+           <br></br>
 
            <div>
                <MyCalendar events={events} />
            </div>
      
             
-            </div>
+        </div>
     )
 
 }
