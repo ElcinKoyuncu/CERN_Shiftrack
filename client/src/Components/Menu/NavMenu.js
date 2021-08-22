@@ -36,12 +36,7 @@ const NavMenu = ()=> {
 
         <Navbar bg="light" expand="lg">
           <Container>
-<<<<<<< HEAD
-            <Navbar.Brand href="#home">
-              <img className= "pic" src = "http://localhost:3000/assets/cern.png" alt="logo"/>
-=======
             <Navbar.Brand><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
->>>>>>> e8655457b74fd2177c0fb609ea628d0dbaa83958
             </Navbar.Brand>
             <div class="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
