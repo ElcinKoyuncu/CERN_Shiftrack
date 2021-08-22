@@ -13,26 +13,30 @@ const NavMenu = ()=> {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/calender">
-              Calendar
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+      
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
+            </Navbar.Brand>
+            <div class="d-flex justify-content-end">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto" >
+              <Nav.Link href="/MyCalendar">CALENDAR</Nav.Link>
+              <Nav.Link href="/" onClick={() => Auth.logout()}>LOGOUT</Nav.Link>
+            </Nav>
+            </Navbar.Collapse>
+            </div>
+          </Container>
+        </Navbar>
+
       );
     } else {
       return (
 
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="#home"><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
+            <Navbar.Brand><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
             </Navbar.Brand>
             <div class="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

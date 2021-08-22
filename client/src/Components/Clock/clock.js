@@ -71,7 +71,7 @@ export default class Clock extends React.Component {
         // const timeOut = onChangeOut.timeString;
       
         return (
-            
+          <center> 
           <Container>
               <Row className="justify-content-md-center">
                   <Col>
@@ -111,7 +111,7 @@ export default class Clock extends React.Component {
                   </Col>
               
               </Row>
-          </Container>  
+          </Container>  </center> 
           
         )
     }
