@@ -52,6 +52,7 @@ type User {
     _id: ID
     from: String
     to: String
+    userId: String
   }
   
 type Query {
