@@ -14,29 +14,57 @@ import React from 'react';
   
 export default class Clock extends React.Component {
 
+    documentData;
     constructor(props) {
         super(props);
-
+        this.handleChange = this.handleChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.state = {
-            clock: {
-                timeIn: props.timeIn,
-                timeOut: props.timeOut
-            }
+            clockIn: '',
+            clockOut: ''
         }
     }
+
+    handleChange= (e)=> {
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    // on form submit...
+    handleFormSubmit(e) {
+        e.preventDefault()
+        localStorage.setItem('document',JSON.stringify(this.state));
+    }
+
+    // React Life Cycle
+    componentDidMount() {
+        this.documentData = JSON.parse(localStorage.getItem('document'));
+    
+        if (localStorage.getItem('document')) {
+            this.setState({
+                clockIn: this.documentData.clockIn,
+                clockOut: this.documentData.clockOut
+        })
+    } else {
+        this.setState({
+            clockIn: '',
+            clockOut: ''
+        })
+    }
+    }
+
 
 
     render() {
 
-        function onChangeIn(time, timeString) {
-            console.log(time, timeString);
-            // const timeIn = timeString;
-        }
+        // function onChangeIn(time, timeString) {
+        //     console.log(time, timeString);
+        //     // const timeIn = timeString;
+        // }
       
-        function onChangeOut(time, timeString) {
-          console.log(time, timeString);
-        //   const timeOut = timeString;
-        }
+        // function onChangeOut(time, timeString) {
+        //   console.log(time, timeString);
+        // //   const timeOut = timeString;
+        // }
         
         // const timeIn = onChangeIn.timeString;
 
@@ -49,13 +77,13 @@ export default class Clock extends React.Component {
                   <Col>
                       <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
                           
-                      <Form>
+                      <Form onSubmit={this.handleFormSubmit}>
                           <Row>
                               <Col>
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock In</Form.Label>
                                       <div>
-                                          <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockIn} name="clockIn" />
                                       </div>
                                       <Form.Text className="text-muted">
                                       Select clock for time options
@@ -68,7 +96,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock Out</Form.Label>
                                       <div>
-                                          <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}/>
+                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockOut} name="clockOut"/>
                                       </div>
                                       <Form.Text className="text-muted">
                                           Select clock for time options
