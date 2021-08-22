@@ -5,13 +5,13 @@ db.once('open', async () => {
 const userSeed = [
     {
         username: 'test1',
-        password:' test123',
+        password: 'test123',
         email:'test1@test1.com',
-        clockIn: '10.30',
-        clockOut: '11.30',
+        clockIn: '',
+        clockOut: '',
         hoursWork: 10,
         role: 'manager',
-        rto: 1,
+        rto: [],
     },
   ];
 await User.deleteMany({})
