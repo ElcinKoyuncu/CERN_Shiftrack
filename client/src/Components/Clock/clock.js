@@ -14,7 +14,14 @@ import React from 'react';
   
 export default class Clock extends React.Component {
 
+    
     documentData;
+
+    state = {
+        clockIn: '',
+        clockOut: ''
+    };
+
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -26,6 +33,8 @@ export default class Clock extends React.Component {
     }
 
     handleChange= (e)=> {
+        const input = e.target;
+        const value = e.target.name;
         this.setState({[e.target.name]:e.target.value});
     }
 
@@ -44,15 +53,14 @@ export default class Clock extends React.Component {
                 clockIn: this.documentData.clockIn,
                 clockOut: this.documentData.clockOut
         })
-    } else {
-        this.setState({
-            clockIn: '',
-            clockOut: ''
-        })
+        } else {
+            this.setState({
+                clockIn: '',
+                clockOut: ''
+            })
+        }
     }
-    }
-
-
+    
 
     render() {
 
@@ -83,7 +91,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock In</Form.Label>
                                       <div>
-                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockIn} name="clockIn" />
+                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockIn} name="clockIn" onSubmit={this.handleFormSubmit}/>
                                       </div>
                                       <Form.Text className="text-muted">
                                       Select clock for time options
@@ -96,7 +104,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock Out</Form.Label>
                                       <div>
-                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockOut} name="clockOut"/>
+                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockOut} name="clockOut" onSubmit={this.handleFormSubmit}/>
                                       </div>
                                       <Form.Text className="text-muted">
                                           Select clock for time options
