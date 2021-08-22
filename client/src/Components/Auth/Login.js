@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Form'
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -31,28 +33,27 @@ function Login(props) {
   return (
     <div className="container my-1">
       <Link to="/signup">← Go to Signup</Link>
+
+      <center>
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control placeholder="youremail@test.com"
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
+            onChange={handleChange} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control placeholder="******"
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
-          />
-        </div>
+            onChange={handleChange}/>
+      </Form.Group>
         {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
@@ -62,6 +63,7 @@ function Login(props) {
           <button type="submit">Login</button>
         </div>
       </form>
+      </center>
     </div>
   );
 }
