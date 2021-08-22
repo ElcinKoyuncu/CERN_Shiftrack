@@ -13,7 +13,10 @@ const clockInOutSchema = new Schema({
     
     
   },
- 
+ userId: {
+         type: mongoose.Types.ObjectId,
+         ref: "User"
+    }
  
 });
 

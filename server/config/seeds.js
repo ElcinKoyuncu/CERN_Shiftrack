@@ -1,18 +1,30 @@
 const db = require('./connection');
 const { User,Admin, Time } = require('../models');
+const { ObjectId } = require('mongodb');
+const bcrypt = require('bcrypt');
 
 db.once('open', async () => {
 const userSeed = [
     {
-        username: 'test1',
-        password:' test123',
-        email:'test1@test1.com',
+        username: 'Test',
+        password: await bcrypt.hash('123456', 10),
+        email:'test@test.com',
         clockIn: '10.30',
         clockOut: '11.30',
         hoursWork: 10,
         role: 'manager',
-        rto: 1,
+        rto: [],
     },
+    {
+      username: 'Test2',
+      password: await bcrypt.hash('123456789', 10),
+      email:'test2@test.com',
+      clockIn: '10.30',
+      clockOut: '11.30',
+      hoursWork: 10,
+      role: 'manager',
+      rto: [],
+  },
   ];
 await User.deleteMany({})
     await User.insertMany(userSeed);
