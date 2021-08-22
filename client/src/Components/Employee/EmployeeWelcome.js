@@ -5,7 +5,10 @@ import axios from '../../utils/holidayApi';
 
 
 const EmployeeWelcome = ()=> {
-    const decoded = jwt_decode(localStorage.getItem("id_token"));
+    let decoded;
+    if ((localStorage.getItem("id_token")))
+    {decoded = jwt_decode(localStorage.getItem("id_token"));
+}
 
 axios.get('/holidays?country=US&size=100&format=json&pretty=true&pretty=true&year=2021&key=8626679286f9a2a20ece9a7ba4c696ee477743')
      .then(response => {
