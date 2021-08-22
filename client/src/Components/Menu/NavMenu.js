@@ -46,7 +46,7 @@ const NavMenu = ()=> {
         <>
          <div className="logo" />
       <Menu theme="light" mode="horizontal:primary" defaultSelectedKeys={['2']}>
-        <img src = "http://localhost:3000/assets/cern.png"/>
+        <img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
       
       </Menu>
       <nav>
