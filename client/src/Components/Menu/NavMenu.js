@@ -41,8 +41,8 @@ const NavMenu = ()=> {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
-              <Nav.Link href="/signup">SIGN UP</Nav.Link>
-              <Nav.Link href="/login">LOGIN</Nav.Link>
+              {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
+              {/* <Nav.Link href="/login">LOGIN</Nav.Link> */}
               <Nav.Link href="/admin">ADMIN</Nav.Link>
             </Nav>
             </Navbar.Collapse>

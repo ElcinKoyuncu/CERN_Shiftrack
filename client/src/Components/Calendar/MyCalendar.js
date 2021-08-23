@@ -6,7 +6,7 @@ import "./calendar.css";
 const localizer = momentLocalizer(moment)
 
 const MyCalendar = props => (
-  <div class="calendar">
+  <div className="calendar">
     <Calendar
       localizer={localizer}
       events={props.events}
