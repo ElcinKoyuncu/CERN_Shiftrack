@@ -14,6 +14,7 @@ class AuthService {
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
+  
   // check if token is expired
   isTokenExpired(token) {
     try {
@@ -34,11 +35,12 @@ class AuthService {
   return null;
   }
 
-  login(idToken) {
+  login(idToken, path = '/') {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.assign(path);
   }
+
 
   logout() {
     // Clear user token and profile data from localStorage
@@ -46,6 +48,8 @@ class AuthService {
     // this will reload the page and reset the state of the application
     window.location.assign('/');
   }
+ 
 }
+
 
 export default new AuthService();

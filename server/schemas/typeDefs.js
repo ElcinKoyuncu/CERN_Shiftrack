@@ -20,6 +20,7 @@ type Mutation {
   ): Auth
 
   login(email: String!, password: String!): Auth
+
   adminLogin(email: String!, password: String!): Auth
   
 }
@@ -70,6 +71,8 @@ type Query {
 type Auth {
     token: ID!
     user: User
+    adminToken: ID!
+    admin: Admin
 }
 
 

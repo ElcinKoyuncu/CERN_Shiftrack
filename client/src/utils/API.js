@@ -42,7 +42,7 @@ export const getMe = (token) => {
   
   // remove saved user data for a logged in user
   export const deleteUser = (userId, token) => {
-    return fetch(`/api/users/userss/${userId}`, {
+    return fetch(`/api/users/users/${userId}`, {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${token}`,

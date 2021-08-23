@@ -1,7 +1,5 @@
 import React from 'react';
-import { Menu } from 'antd';
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
 import "./NavMenu.css";
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
@@ -43,8 +41,9 @@ const NavMenu = ()=> {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
-              <Nav.Link href="/signup">SIGN UP</Nav.Link>
-              <Nav.Link href="/login">LOGIN</Nav.Link>
+              {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
+              {/* <Nav.Link href="/login">LOGIN</Nav.Link> */}
+              <Nav.Link href="/admin">ADMIN</Nav.Link>
             </Nav>
             </Navbar.Collapse>
             </div>
@@ -53,6 +52,7 @@ const NavMenu = ()=> {
        
       );
     }
+    
   }
     
    

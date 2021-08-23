@@ -39,6 +39,7 @@ const resolvers = {
 
       return { token, user };
     },
+    
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return User.findByIdAndUpdate(context.user.id, args, {
@@ -68,21 +69,24 @@ const resolvers = {
 
     },
     adminLogin: async (parent, { email, password }) => {
-      const admin = await Admin.findOne({email});
+      const admin = await Admin.findOne({ email });
+      
 
       if (!admin) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect credentials 1');
       }
 
       const correctPw = await admin.isCorrectPassword(password);
+      
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect credentials 2');
       }
 
-      const adminToken = signToken({...admin, type:"admin"});
-      return {adminToken, admin };
+      const adminToken = signToken({...admin, type:'admin'});
       
+      return { adminToken , admin };
+
     },
 
   },

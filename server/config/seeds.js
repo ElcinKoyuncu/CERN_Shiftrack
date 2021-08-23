@@ -12,7 +12,7 @@ const userSeed = [
         clockIn: '10.30',
         clockOut: '11.30',
         hoursWork: 10,
-        role: 'manager',
+        role: 'employee',
         rto: [],
     },
     {
@@ -22,7 +22,7 @@ const userSeed = [
       clockIn: '10.30',
       clockOut: '11.30',
       hoursWork: 10,
-      role: 'manager',
+      role: 'employee',
       rto: [],
   },
   ];
