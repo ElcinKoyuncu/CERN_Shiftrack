@@ -63,7 +63,7 @@ const resolvers = {
         throw new AuthenticationError('Incorrect credentials 2');
       }
 
-      const token = signToken(user);
+      const token = signToken({...user, type:"user"});
       
       return { token, user };
 

@@ -1,10 +1,12 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
+import "./calendar.css";
+
 
 const localizer = momentLocalizer(moment)
 
 const MyCalendar = props => (
-  <div>
+  <div class="calendar">
     <Calendar
       localizer={localizer}
       events={props.events}

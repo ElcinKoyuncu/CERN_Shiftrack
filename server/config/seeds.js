@@ -31,10 +31,10 @@ await User.deleteMany({})
 
     const adminSeed = [
       {
-        firstName: 'testAdmin1 firstname',
-        lastName: 'testAdmin1 lastname',
+        firstName: 'testAdmin1',
+        lastName: 'tester',
         username:'testAdmin1',
-        password: await bcrypt.hash('testAdmin1', 10),
+        password: await bcrypt.hash('admin12345', 10),
         email:'testAdmin1@testAdmin1.com',
         clockIn: '10.30',
         clockOut: '11.30',

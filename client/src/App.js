@@ -25,9 +25,8 @@ const client = new ApolloClient({
 
 function Routes() {
   const isAuthenticated= localStorage.getItem("id_token")!== null;
-  if (
-    isAuthenticated
-  ){
+  if (isAuthenticated)
+  {
     return <Switch>
      <Route path="/employee" exact component={Employee} />   
             <Route path="/admin" exact component={AdminPage} />
@@ -50,8 +49,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <>
-            <div className="App">
+      
+          <div className="App">
           <NavMenu />
   
          
@@ -59,7 +58,7 @@ function App() {
          
           {/* <Footer /> */}
         </div>
-        </>
+        
       </Router>
     </ApolloProvider>
   );
