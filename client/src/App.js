@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -11,6 +11,7 @@ import Employee from './Components/Employee/Employee';
 import AdminLogin from './Components/Auth/AdminLogin';
 
 const client = new ApolloClient({
+  
   request: (operation) => {
     const token = localStorage.getItem('id_token');
     const adminToken = localStorage.getItem('id_adminToken');

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import MyCalendar from'../Calendar/MyCalendar';
-// import DropdownMenu from './DropdownMenu';
 import RTO from './RTO';
 import Clock from '../Clock/clock';
 import "./employee.css";
