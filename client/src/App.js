@@ -7,6 +7,7 @@ import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
 import AdminPage from './Components/Admin/AdminPage';
+
 import Employee from './Components/Employee/Employee';
 
 const client = new ApolloClient({
@@ -36,7 +37,7 @@ function Routes() {
   }else {
     return <Switch>
  <Route path="/" exact component={Login} />
-
+ 
 <Redirect to="/"/>
     </Switch>
   }

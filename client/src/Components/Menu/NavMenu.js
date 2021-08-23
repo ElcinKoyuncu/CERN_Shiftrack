@@ -20,17 +20,13 @@ const NavMenu = ()=> {
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
+            
           </li>
         </ul>
       );
     } else {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
           <li className="mx-1">
             <Link to="/login">
               Login
@@ -39,6 +35,7 @@ const NavMenu = ()=> {
         </ul>
       );
     }
+    
   }
     
    

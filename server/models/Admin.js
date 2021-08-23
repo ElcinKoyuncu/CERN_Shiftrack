@@ -38,6 +38,10 @@ const adminSchema = new Schema({
     required: true
   
   },
+  role: {
+    type: String,
+    required: true
+  },
   rto: {
     type: String,
     required: true

@@ -12,7 +12,7 @@ const userSeed = [
         clockIn: '10.30',
         clockOut: '11.30',
         hoursWork: 10,
-        role: 'manager',
+        role: 'employee',
         rto: [],
     },
     {
@@ -22,7 +22,7 @@ const userSeed = [
       clockIn: '10.30',
       clockOut: '11.30',
       hoursWork: 10,
-      role: 'manager',
+      role: 'employee',
       rto: [],
   },
   ];
@@ -34,7 +34,7 @@ await User.deleteMany({})
         firstName: 'testAdmin1 firstname',
         lastName: 'testAdmin1 lastname',
         username:'testAdmin1',
-        password:'testAdmin1',
+        password: await bcrypt.hash('testAdmin1', 10),
         email:'testAdmin1@testAdmin1.com',
         clockIn: '10.30',
         clockOut: '11.30',
