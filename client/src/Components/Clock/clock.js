@@ -7,9 +7,9 @@ import Form from 'react-bootstrap/Form';
 import { TimePicker } from 'antd';
 import moment from 'moment';
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../../utils/mutations';
-import { QUERY_PROFILES } from '../../utils/queries';
+import {} from "react-router-dom";
+
+
 
 <TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 
@@ -18,46 +18,59 @@ export default class Clock extends React.Component {
 
     render() {
 
-        // const ProfileForm = () => {
-        //     const [name, setName] = useState('');
-        //     const [addProfile, { error }] = useMutation(ADD_PROFILE, {
-        //       update(cache, { data: { addProfile } }) {
-        //         try {
-        //           const { profiles } = cache.readQuery({ query: QUERY_PROFILES });
-        //           cache.writeQuery({
-        //             query: QUERY_PROFILES,
-        //             data: { profiles: [...profiles, addProfile] },
-        //           });
-        //         } catch (e) {
-        //           console.error(e);
-        //         }
-        //       },
-        //     });
-    
-        //     const handleFormSubmit = async (event) => {
-        //         event.preventDefault();
-        //         try {
-        //           const { data } = await addProfile({
-        //             variables: { name },
-        //           });
-        //           setName('');
-        //         } catch (err) {
-        //           console.error(err);
-        //         }
-        //     };
+        
 
-        //     handleFormSubmit();
+        // function SetClock() {
+        //     const [TimePicker, setInput] = useState({
+        //     clockIn: '',
+        //     clockOut: ''
+        //     })
+
+        //     function handleChange (event) {
+        //         const {name, value} = event.target;
     
+        //         setInput(prevInput => {
+        //             return {
+        //                 ...prevInput,
+        //                 [name]: value
+        //             }
+        //         })
     
+        //         console.log(TimePicker);
+        //     }
+
+        // }
+            
+
+        // function handleChange (event) {
+        //     const {name, value} = event.target;
+
+        //     setInput(prevInput => {
+        //         return {
+        //             ...prevInput,
+        //             [name]: value
+        //         }
+        //     })
+
+        //     console.log(TimePicker);
         // }
 
         function onChangeIn(time, timeString) {
             console.log(time, timeString);
+            console.log(timeString);
+            return (
+                <h2>{timeString}</h2>
+            )
             // return {ProfileForm}
+
         }
       
         function onChangeOut(time, timeString) {
           console.log(time, timeString);
+          console.log(timeString);
+          return (
+            <h2>timeString</h2>
+          )
         //   return {ProfileForm}
         }
         
@@ -76,12 +89,13 @@ export default class Clock extends React.Component {
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label>Clock In</Form.Label>
                                         <div>
-                                            <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockIn"  type="time"/>
+                                            <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockIn"  type="time" value={TimePicker.clockIn}/>
                                         </div>
                                         <Form.Label>Clock Out</Form.Label>
                                         <div>
-                                            <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockOut"  type="time"/>
+                                            <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockOut"  type="time" value={TimePicker.clockOut}/>
                                         </div>
+                                        <div>{onChangeIn},{onChangeOut}</div>
                                     </Form.Group>
                                 </Col>
                             </Row>
