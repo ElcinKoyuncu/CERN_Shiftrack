@@ -17,7 +17,7 @@ const RTO = (props) => {
   const handleOk = () => {
     setIsModalVisible(false);
     props.onRTORequested({
-      id:Date.now(),
+      id:Math.random(),
       title:"RTO",
       start:start.toDate(),
       end:end.toDate(),
