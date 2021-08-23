@@ -14,7 +14,7 @@ export const LOGIN_USER = gql`
 export const LOGIN_ADMIN = gql`
   mutation adminLogin($email: String!, $password: String!) {
     adminLogin(email: $email, password: $password) {
-      token
+    adminToken
       admin {
         _id
        email

@@ -8,6 +8,7 @@ import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
 import CompanyPage from './Components/Company/CompanyPage';
 import Employee from './Components/Employee/Employee';
+import AdminLogin from './Components/Auth/AdminLogin';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -32,10 +33,14 @@ function Routes() {
             <Route path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
             </Switch>
-  }else {
+  }
+  
+  
+  else {
     return <Switch>
  <Route path="/" exact component={Login} />
-
+ <Route path="/admin" exact component={AdminLogin} />
+ 
 <Redirect to="/"/>
     </Switch>
   }
