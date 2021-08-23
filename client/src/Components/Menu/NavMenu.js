@@ -21,7 +21,7 @@ const NavMenu = ()=> {
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
             <Nav.Link href="/CompanyPage">COMPANY</Nav.Link>
-              <Nav.Link href="/MyCalendar">CALENDAR</Nav.Link>
+              <Nav.Link href="/calendar">CALENDAR</Nav.Link>
               <Nav.Link href="/" onClick={() => Auth.logout()}>LOGOUT</Nav.Link>
             </Nav>
             </Navbar.Collapse>
@@ -43,6 +43,7 @@ const NavMenu = ()=> {
             <Nav className="me-auto" >
               <Nav.Link href="/signup">SIGN UP</Nav.Link>
               <Nav.Link href="/login">LOGIN</Nav.Link>
+              <Nav.Link href="/admin">ADMIN</Nav.Link>
             </Nav>
             </Navbar.Collapse>
             </div>

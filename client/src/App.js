@@ -6,13 +6,9 @@ import ApolloClient from 'apollo-boost';
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
-<<<<<<< HEAD
-import AdminPage from './Components/Admin/AdminPage';
-
-=======
 import CompanyPage from './Components/Company/CompanyPage';
->>>>>>> dfcffce969f69eadd2bd4f0486135e2568b2114f
 import Employee from './Components/Employee/Employee';
+import AdminLogin from './Components/Auth/AdminLogin';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -37,9 +33,13 @@ function Routes() {
             <Route path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
             </Switch>
-  }else {
+  }
+  
+  
+  else {
     return <Switch>
  <Route path="/" exact component={Login} />
+ <Route path="/admin" exact component={AdminLogin} />
  
 <Redirect to="/"/>
     </Switch>
