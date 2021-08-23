@@ -6,7 +6,7 @@ import ApolloClient from 'apollo-boost';
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
-import AdminPage from './Components/Admin/AdminPage';
+import CompanyPage from './Components/Company/CompanyPage';
 import Employee from './Components/Employee/Employee';
 
 const client = new ApolloClient({
@@ -28,7 +28,7 @@ function Routes() {
   {
     return <Switch>
      <Route path="/employee" exact component={Employee} />   
-            <Route path="/admin" exact component={AdminPage} />
+            <Route path="/companypage" exact component={CompanyPage} />
             <Route path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
             </Switch>
