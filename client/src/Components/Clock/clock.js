@@ -6,120 +6,93 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { TimePicker } from 'antd';
 import moment from 'moment';
-import React from 'react';
-
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_PROFILE } from '../../utils/mutations';
+import { QUERY_PROFILES } from '../../utils/queries';
 
 <TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 
   
 export default class Clock extends React.Component {
 
-    
-    documentData;
-
-    state = {
-        clockIn: '',
-        clockOut: ''
-    };
-
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.state = {
-            clockIn: '',
-            clockOut: ''
-        }
-    }
-
-    handleChange= (e)=> {
-        const input = e.target;
-        const value = e.target.name;
-        this.setState({[e.target.name]:e.target.value});
-    }
-
-    // on form submit...
-    handleFormSubmit(e) {
-        e.preventDefault()
-        localStorage.setItem('document',JSON.stringify(this.state));
-    }
-
-    // React Life Cycle
-    componentDidMount() {
-        this.documentData = JSON.parse(localStorage.getItem('document'));
-    
-        if (localStorage.getItem('document')) {
-            this.setState({
-                clockIn: this.documentData.clockIn,
-                clockOut: this.documentData.clockOut
-        })
-        } else {
-            this.setState({
-                clockIn: '',
-                clockOut: ''
-            })
-        }
-    }
-    
-
     render() {
 
-        // function onChangeIn(time, timeString) {
-        //     console.log(time, timeString);
-        //     // const timeIn = timeString;
-        // }
-      
-        // function onChangeOut(time, timeString) {
-        //   console.log(time, timeString);
-        // //   const timeOut = timeString;
-        // }
-        
-        // const timeIn = onChangeIn.timeString;
+        // const ProfileForm = () => {
+        //     const [name, setName] = useState('');
+        //     const [addProfile, { error }] = useMutation(ADD_PROFILE, {
+        //       update(cache, { data: { addProfile } }) {
+        //         try {
+        //           const { profiles } = cache.readQuery({ query: QUERY_PROFILES });
+        //           cache.writeQuery({
+        //             query: QUERY_PROFILES,
+        //             data: { profiles: [...profiles, addProfile] },
+        //           });
+        //         } catch (e) {
+        //           console.error(e);
+        //         }
+        //       },
+        //     });
+    
+        //     const handleFormSubmit = async (event) => {
+        //         event.preventDefault();
+        //         try {
+        //           const { data } = await addProfile({
+        //             variables: { name },
+        //           });
+        //           setName('');
+        //         } catch (err) {
+        //           console.error(err);
+        //         }
+        //     };
 
-        // const timeOut = onChangeOut.timeString;
+        //     handleFormSubmit();
+    
+    
+        // }
+
+        function onChangeIn(time, timeString) {
+            console.log(time, timeString);
+            // return {ProfileForm}
+        }
+      
+        function onChangeOut(time, timeString) {
+          console.log(time, timeString);
+        //   return {ProfileForm}
+        }
+        
+
       
         return (
           <center> 
-          <Container>
-              <Row className="justify-content-md-center">
-                  <Col>
-                      <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
+            <Container>
+                <Row className="justify-content-md-center">
+                    <Col>
+                        <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
                           
-                      <Form onSubmit={this.handleFormSubmit}>
-                          <Row>
-                              <Col>
-                                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                                      <Form.Label>Clock In</Form.Label>
-                                      <div>
-                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockIn} name="clockIn" onSubmit={this.handleFormSubmit}/>
-                                      </div>
-                                      <Form.Text className="text-muted">
-                                      Select clock for time options
-                                      </Form.Text>
-                                  </Form.Group>
-                              </Col>
-                          </Row>
-                          <Row>
-                              <Col>
-                                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                                      <Form.Label>Clock Out</Form.Label>
-                                      <div>
-                                          <TimePicker onChange={this.handleChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} value={this.state.clockOut} name="clockOut" onSubmit={this.handleFormSubmit}/>
-                                      </div>
-                                      <Form.Text className="text-muted">
-                                          Select clock for time options
-                                      </Form.Text>
-                                  </Form.Group>
-                              </Col>
-                          </Row>
-                      </Form>
-                      <h5>You clocked in at and clocked out at . Today you worked hours</h5>
-                      </Card>
+                        <Form>
+                            <Row>
+                                <Col>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Clock In</Form.Label>
+                                        <div>
+                                            <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockIn"  type="time"/>
+                                        </div>
+                                        <Form.Label>Clock Out</Form.Label>
+                                        <div>
+                                            <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockOut"  type="time"/>
+                                        </div>
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+                        </Form>
+                        </Card>
       
                   </Col>
               
               </Row>
-          </Container>  </center> 
+            </Container>  
+          </center> 
           
         )
     }
