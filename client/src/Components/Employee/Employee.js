@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import MyCalendar from'../Calendar/MyCalendar';
 import RTO from './RTO';
 import Clock from '../Clock/clock';
-import Schedule from '../Schedule/Schedule';
 import EmployeeWelcome from './EmployeeWelcome'
 
 
@@ -11,19 +10,20 @@ const Employee = () => {
     return (
         <div> 
             <EmployeeWelcome />
-            <Schedule onScheduleRequested={event => setEvents([...events,event])}/>
+            <br></br>
+          
            <RTO onRTORequested={event => setEvents([...events,event])}/>
-           <h2>Clock in/Clock out</h2> 
+           
            <Clock />
-           <br>
-           </br>
+           <br></br>
+           <br></br>
 
            <div>
                <MyCalendar events={events} />
            </div>
      
             
-            </div>
+        </div>
     )
 
 }

@@ -8,7 +8,6 @@ import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
 import AdminPage from './Components/Admin/AdminPage';
 import Employee from './Components/Employee/Employee';
-import Schedule from './Components/Schedule/Schedule';
 
 const client = new ApolloClient({
   request: (operation) => {

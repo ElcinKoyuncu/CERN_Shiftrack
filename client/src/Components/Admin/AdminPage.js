@@ -8,7 +8,7 @@ const AdminPage = () => {
         <div> 
 
            <div>
-               <Schedule />
+               <Schedule onScheduleRequested={event => setEvents([...events,event])}/>
                <MyCalendar events={events} />
            </div>
      

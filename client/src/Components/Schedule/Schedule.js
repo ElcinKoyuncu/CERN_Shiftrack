@@ -25,11 +25,11 @@ const Schedule = (props) => {
 
     const handleOk = () => {
         setIsModalVisible(false);
-        props.onSchedueRequested({
+        props.onScheduleRequested({
           id:Date.now(),
           title:"Schedule",
           date:date.toDate(),
-          employee:"",
+          employee:'',
           allDay: true,
         }) 
       };
@@ -37,12 +37,12 @@ const Schedule = (props) => {
     const handleCancel = () => {
         setIsModalVisible(false);
       };
-
-    const [date, setDate] = useState(null)
-    const [employee, setEmployee] = useState(null)
+    const [location, setLocation] = useState(null)
+    const [date, setDate] = useState()
+    const [employee, setEmployee] = useState()
     const handleSubmit = e => {
             e.preventDefault();
-            console.log(date,employee);
+            console.log(date, employee, location);
           };
 
   
@@ -60,14 +60,14 @@ const Schedule = (props) => {
         initialValues={{ size: componentSize }}
         onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Name">
+        <Form.Item label="Employee">
           <Input onChange={setEmployee} value={employee}/>
         </Form.Item>
         <Form.Item label="Location">
           <Select>
-            <Select.Option value="miami">Miami</Select.Option>
-            <Select.Option value="fort lauderdale">Fort Lauderdale</Select.Option>
-            <Select.Option value="palm beach">Palm Beach</Select.Option>
+            <Select.Option onChange={setLocation} value={location}>Miami</Select.Option>
+            <Select.Option onChange={setLocation} value={location}>Fort Lauderdale</Select.Option>
+            <Select.Option onChange={setLocation} value={location}>Palm Beach</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="DatePicker">
