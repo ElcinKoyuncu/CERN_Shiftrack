@@ -44,8 +44,8 @@ const AdminLogin = () => {
       });
 
       console.log(data);
-      Auth.login(data.adminLogin.adminToken);
-      console.log(data.AdminLogin.adminToken);
+      Auth.login(data.adminLogin.adminToken,'/companypage');
+     
     } catch (e) {
       console.error(e);
     }
