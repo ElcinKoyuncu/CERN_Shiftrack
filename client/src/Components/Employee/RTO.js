@@ -43,9 +43,11 @@ const handleSubmit = e => {
 
   return (
     <>
-      <Button style={{float: 'right'}} type="primary" onClick={showModal}>
+      <center>
+      <Button type="primary" onClick={showModal} >
         Request Time Off
       </Button>
+      </center>
       <Modal title="Request Time Off" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
       <Form onSubmit={handleSubmit}
         labelCol={{
@@ -69,6 +71,7 @@ const handleSubmit = e => {
         </Form.Item>
       </Form>
       </Modal>
+      
     </>
   );
 };
