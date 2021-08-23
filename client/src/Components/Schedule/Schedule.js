@@ -28,7 +28,7 @@ const Schedule = (props) => {
         props.onScheduleRequested({ 
           id:Date.now(),
           title:"Schedule",
-          date:props.date.toDate(),
+          myDate:myDate.toDate(),
           employee:employee.toString(),
           allDay: true,
         }) 
@@ -39,11 +39,11 @@ const Schedule = (props) => {
       };
     
     const [locations, setLocations] = useState([])
-    const [date, setDate] = useState(null)
+    const [myDate, setMyDate] = useState(null)
     const [employee, setEmployee] = useState('')
     const handleMySubmit = event => {
             event.preventDefault();
-            console.log(date, employee, locations);
+            console.log(myDate, employee, locations);
           };
 
   
@@ -72,8 +72,8 @@ const Schedule = (props) => {
         </Form.Item>
     
 
-        <Form.Item label="date">
-          <DatePicker onChange={setDate} value={props.date} />
+        <Form.Item label="myDate">
+          <DatePicker onChange={setMyDate} value={myDate} />
         </Form.Item>
 
 

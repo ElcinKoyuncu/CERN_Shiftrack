@@ -18,10 +18,10 @@ export default class Clock extends React.Component {
         super(props);
 
         this.state = {
-            clock: {
-                timeIn: props.timeIn,
-                timeOut: props.timeOut
-            }
+            // timeIn: props.timeIn,
+            // timeOut: props.timeOut,
+            startShift: null,
+            endShift: null,
         }
     }
 
@@ -47,7 +47,7 @@ export default class Clock extends React.Component {
           <Container>
               <Row className="justify-content-md-center">
                   <Col>
-                      <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
+                      <Card className="clockIn" title="Start of Day" style={{ width: 300 }}>
                           
                       <Form>
                           <Row>
@@ -55,7 +55,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock In</Form.Label>
                                       <div>
-                                          <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                                          <TimePicker onChange={onChangeIn} value={this.state.startShift} />
                                       </div>
                                       <Form.Text className="text-muted">
                                       Select clock for time options
@@ -68,7 +68,7 @@ export default class Clock extends React.Component {
                                   <Form.Group className="mb-3" controlId="formBasicEmail">
                                       <Form.Label>Clock Out</Form.Label>
                                       <div>
-                                          <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}/>
+                                          <TimePicker onChange={onChangeOut} defaultValue={moment('00:00:00', 'HH:mm:ss')}/>
                                       </div>
                                       <Form.Text className="text-muted">
                                           Select clock for time options
@@ -77,7 +77,7 @@ export default class Clock extends React.Component {
                               </Col>
                           </Row>
                       </Form>
-                      <h5>You clocked in at and clocked out at . Today you worked hours</h5>
+                      {/* <h5>You clocked in at and clocked out at . Today you worked hours</h5> */}
                       </Card>
       
                   </Col>

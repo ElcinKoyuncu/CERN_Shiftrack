@@ -19,14 +19,14 @@ const AdminPage = () => {
     return (
         <div> 
             
-           <h2 class="text-center text-decoration-underline">C E R N</h2>
+           <h2 className="text-center text-decoration-underline">C E R N</h2>
            <Schedule onScheduleRequested={event => setEvents([...events,event])}/>
             
            <div>
                <h3>Staff Flow Chart</h3>
-               <div style={{ height: 250, width: 400}} class="border border-primary border:4px">
+               {/* <div style={{ height: 250, width: 400}} className="border border-primary border:4px">
                <ReactFlow elements={elements} />
-               </div>
+            </div> */}
                <div>
                <MyCalendar events={events} />
            </div>

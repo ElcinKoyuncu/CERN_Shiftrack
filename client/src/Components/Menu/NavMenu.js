@@ -16,7 +16,7 @@ const NavMenu = ()=> {
           <Container>
             <Navbar.Brand><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
             </Navbar.Brand>
-            <div class="d-flex justify-content-end">
+            <div className="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
@@ -37,7 +37,7 @@ const NavMenu = ()=> {
           <Container>
             <Navbar.Brand><img className= "pic" src = "http://localhost:3000/assets/cern.png"/>
             </Navbar.Brand>
-            <div class="d-flex justify-content-end">
+            <div className="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
