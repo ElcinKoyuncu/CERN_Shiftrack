@@ -18,7 +18,11 @@
     "formik": "^2.2.9",
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
+
     "rc-time-picker": "^3.7.3",
+
+    "moment": "^2.29.1",
+
     "react": "^17.0.2",
     "react-big-calendar": "^0.35.0",
     "react-bootstrap": "^1.6.1",

@@ -13,7 +13,7 @@ const AdminPage = () => {
         { id: '2', data: { label: <div>Employee: Sarah</div> }, position: { x: 20, y: 100 } },
         { id: '3', data: { label: <div>Employee: James</div> }, position: { x: 150, y: 150 } },
         { id: 'e1-2', source: '1', target: '2', animated: true },
-        { id: 'e1-2', source: '1', target: '3', animated: true },
+        { id: 'e1-3', source: '1', target: '3', animated: true },
       ];
 
     return (
@@ -24,9 +24,9 @@ const AdminPage = () => {
             
            <div>
                <h3>Staff Flow Chart</h3>
-               {/* <div style={{ height: 250, width: 400}} className="border border-primary border:4px">
+               <div style={{ height: 250, width: 400}} className="border border-primary border:4px">
                <ReactFlow elements={elements} />
-            </div> */}
+            </div>
                <div>
                <MyCalendar events={events} />
            </div>

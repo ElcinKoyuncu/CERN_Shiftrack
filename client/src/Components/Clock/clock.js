@@ -6,7 +6,9 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { TimePicker } from 'antd';
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
+import {} from "react-router-dom";
+
 
 
 <TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
@@ -14,76 +16,97 @@ import React from 'react';
   
 export default class Clock extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            // timeIn: props.timeIn,
-            // timeOut: props.timeOut,
-            startShift: null,
-            endShift: null,
-        }
-    }
-
-
     render() {
+
+        
+
+        // function SetClock() {
+        //     const [TimePicker, setInput] = useState({
+        //     clockIn: '',
+        //     clockOut: ''
+        //     })
+
+        //     function handleChange (event) {
+        //         const {name, value} = event.target;
+    
+        //         setInput(prevInput => {
+        //             return {
+        //                 ...prevInput,
+        //                 [name]: value
+        //             }
+        //         })
+    
+        //         console.log(TimePicker);
+        //     }
+
+        // }
+            
+
+        // function handleChange (event) {
+        //     const {name, value} = event.target;
+
+        //     setInput(prevInput => {
+        //         return {
+        //             ...prevInput,
+        //             [name]: value
+        //         }
+        //     })
+
+        //     console.log(TimePicker);
+        // }
 
         function onChangeIn(time, timeString) {
             console.log(time, timeString);
-            // const timeIn = timeString;
+            console.log(timeString);
+            return (
+                <h2>{timeString}</h2>
+            )
+            // return {ProfileForm}
+
         }
       
         function onChangeOut(time, timeString) {
           console.log(time, timeString);
-        //   const timeOut = timeString;
+          console.log(timeString);
+          return (
+            <h2>timeString</h2>
+          )
+        //   return {ProfileForm}
         }
         
-        // const timeIn = onChangeIn.timeString;
 
-        // const timeOut = onChangeOut.timeString;
       
         return (
           <center> 
-          <Container>
-              <Row className="justify-content-md-center">
-                  <Col>
-                      <Card className="clockIn" title="Start of Day" style={{ width: 300 }}>
+            <Container>
+                <Row className="justify-content-md-center">
+                    <Col>
+                        <Card class="clockIn" title="Start of Day" style={{ width: 300 }}>
                           
-                      <Form>
-                          <Row>
-                              <Col>
-                                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                                      <Form.Label>Clock In</Form.Label>
-                                      <div>
-                                          <TimePicker onChange={onChangeIn} value={this.state.startShift} />
-                                      </div>
-                                      <Form.Text className="text-muted">
-                                      Select clock for time options
-                                      </Form.Text>
-                                  </Form.Group>
-                              </Col>
-                          </Row>
-                          <Row>
-                              <Col>
-                                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                                      <Form.Label>Clock Out</Form.Label>
-                                      <div>
-                                          <TimePicker onChange={onChangeOut} defaultValue={moment('00:00:00', 'HH:mm:ss')}/>
-                                      </div>
-                                      <Form.Text className="text-muted">
-                                          Select clock for time options
-                                      </Form.Text>
-                                  </Form.Group>
-                              </Col>
-                          </Row>
-                      </Form>
-                      {/* <h5>You clocked in at and clocked out at . Today you worked hours</h5> */}
-                      </Card>
+                        <Form>
+                            <Row>
+                                <Col>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Clock In</Form.Label>
+                                        <div>
+                                            <TimePicker onChange={onChangeIn} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockIn"  type="time" value={TimePicker.clockIn}/>
+                                        </div>
+                                        <Form.Label>Clock Out</Form.Label>
+                                        <div>
+                                            <TimePicker onChange={onChangeOut} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}  name="clockOut"  type="time" value={TimePicker.clockOut}/>
+                                        </div>
+                                        <div>{onChangeIn},{onChangeOut}</div>
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+                        </Form>
+                        </Card>
       
                   </Col>
               
               </Row>
-          </Container>  </center> 
+            </Container>  
+          </center> 
           
         )
     }
