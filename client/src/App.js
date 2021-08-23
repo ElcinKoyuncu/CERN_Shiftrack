@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -6,10 +6,12 @@ import ApolloClient from 'apollo-boost';
 import NavMenu from './Components/Menu/NavMenu';
 import Login from './Components/Auth/Login';
 import MyCalendar from'./Components/Calendar/MyCalendar';
-import AdminPage from './Components/Admin/AdminPage';
+import CompanyPage from './Components/Company/CompanyPage';
 import Employee from './Components/Employee/Employee';
+import events from './Components/Calendar/MyCalendar';
 
 const client = new ApolloClient({
+  
   request: (operation) => {
     const token = localStorage.getItem('id_token');
 
@@ -28,8 +30,8 @@ function Routes() {
   {
     return <Switch>
      <Route path="/employee" exact component={Employee} />   
-            <Route path="/admin" exact component={AdminPage} />
-            <Route path="/calendar" exact component={MyCalendar} />
+            <Route path="/companypage" exact component={CompanyPage} />
+            <Route events={events} path="/calendar" exact component={MyCalendar} />
             <Redirect to="/employee"/>
             </Switch>
   }else {

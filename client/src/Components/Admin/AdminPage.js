@@ -22,6 +22,7 @@ const AdminPage = () => {
                <h3>Staff Flow Chart</h3>
                <div style={{ height: 200, width: 300}} class="border border-primary">
                <ReactFlow elements={elements} />
+               <MyCalendar events={events} />
                </div>
             
            </div>

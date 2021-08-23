@@ -8,7 +8,6 @@ import {
   } from 'antd';
 
 
-
 const Schedule = (props) => {
 
     const [componentSize, setComponentSize] = useState('default');
@@ -25,11 +24,12 @@ const Schedule = (props) => {
 
     const handleOk = () => {
         setIsModalVisible(false);
-        props.onScheduleRequested({
+        // const scheduleId = props.schedule._id
+        props.onScheduleRequested({ 
           id:Date.now(),
           title:"Schedule",
-          date:date.toDate(),
-          employee:'',
+          date:props.date.toDate(),
+          employee:employee.toString(),
           allDay: true,
         }) 
       };
@@ -37,12 +37,13 @@ const Schedule = (props) => {
     const handleCancel = () => {
         setIsModalVisible(false);
       };
-    const [location, setLocation] = useState(null)
-    const [date, setDate] = useState()
-    const [employee, setEmployee] = useState()
-    const handleSubmit = e => {
-            e.preventDefault();
-            console.log(date, employee, location);
+    
+    const [locations, setLocations] = useState([])
+    const [date, setDate] = useState(null)
+    const [employee, setEmployee] = useState('')
+    const handleMySubmit = event => {
+            event.preventDefault();
+            console.log(date, employee, locations);
           };
 
   
@@ -51,36 +52,37 @@ const Schedule = (props) => {
     <Button style={{float: 'right'}} type="primary" onClick={showModal}>
         Make Schedule
     </Button>
-    <Modal title="Request Time Off" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+    <Modal title="Make Schedule" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
       <Form
-        onSubmit={handleSubmit}
+        onSubmit={handleMySubmit}
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
         initialValues={{ size: componentSize }}
         onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Employee">
-          <Input onChange={setEmployee} value={employee}/>
+        <Form.Item label="employee">
+          <Input onChange={setEmployee} value={employee} />
         </Form.Item>
-        <Form.Item label="Location">
+
+         <Form.Item label="locations">    
           <Select>
-            <Select.Option onChange={setLocation} value={location}>Miami</Select.Option>
-            <Select.Option onChange={setLocation} value={location}>Fort Lauderdale</Select.Option>
-            <Select.Option onChange={setLocation} value={location}>Palm Beach</Select.Option>
+            <Select.Option onChange={setLocations} value={locations}>Miami</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item label="DatePicker">
-          <DatePicker onChange={setDate} value={date} />
+    
+
+        <Form.Item label="date">
+          <DatePicker onChange={setDate} value={props.date} />
         </Form.Item>
 
 
       </Form>
       </Modal>
         </>
+        
      );
   };
   
   
   export default Schedule
-
