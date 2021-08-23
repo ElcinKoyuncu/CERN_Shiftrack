@@ -20,6 +20,7 @@ type Mutation {
   ): Auth
 
   login(email: String!, password: String!): Auth
+
   adminLogin(email: String!, password: String!): Auth
   
 }
@@ -54,6 +55,13 @@ type User {
     to: String
     userId: String
   }
+  type Schedule {
+    _id: ID
+    employee: String
+    location: String
+    date: String
+    userId: String
+  }
   
 type Query {
     user: User
@@ -63,6 +71,8 @@ type Query {
 type Auth {
     token: ID!
     user: User
+    adminToken: ID!
+    admin: Admin
 }
 
 

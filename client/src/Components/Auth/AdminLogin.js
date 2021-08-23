@@ -1,18 +1,18 @@
 import "./Login.css";
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
+import { LOGIN_ADMIN } from '../../utils/mutations';
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 
 
-const Login = () => {
+const AdminLogin = () => {
  
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [adminFormData, setAdminFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [login, { loading, error }] = useMutation
-  (LOGIN_USER);
+  const [adminLogin, { loading, error }] = useMutation
+  (LOGIN_ADMIN);
  
   useEffect(() => {
     if (error) {
@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setAdminFormData({ ...adminFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -39,18 +39,19 @@ const Login = () => {
     }
 
     try {
-      const { data } = await login({
-        variables: { ...userFormData },
+      const { data } = await adminLogin({
+        variables: { ...adminFormData },
       });
 
       console.log(data);
-      Auth.login(data.login.token);
+      Auth.login(data.adminLogin.adminToken,'/companypage');
+     
     } catch (e) {
       console.error(e);
     }
 
     // clear form values
-    setUserFormData({
+    setAdminFormData({
       email: '',
       password: '',
     });
@@ -68,7 +69,7 @@ const Login = () => {
             placeholder='Your email'
             name='email'
             onChange={handleInputChange}
-            value={userFormData.email}
+            value={adminFormData.email}
             required
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
@@ -81,12 +82,12 @@ const Login = () => {
             placeholder='Your password'
             name='password'
             onChange={handleInputChange}
-            value={userFormData.password}
+            value={adminFormData.password}
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
+        <Button disabled={!(adminFormData.email && adminFormData.password)} type='submit' variant='success'>
           Login
         </Button>
       </Form>
@@ -94,4 +95,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
