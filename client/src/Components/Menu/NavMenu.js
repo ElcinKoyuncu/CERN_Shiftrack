@@ -35,7 +35,7 @@ const NavMenu = ()=> {
 
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand><img className= "pic" alt="" src = "assets/cern.png"/>
+            <Navbar.Brand><img className= "pic" alt="" src = "assets/cern.png"/>n
             </Navbar.Brand>
             <div class="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
