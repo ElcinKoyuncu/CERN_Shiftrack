@@ -91,7 +91,7 @@ const Schedule = (props) => {
     
 
         <Form.Item label="date">
-          <DatePicker onChange={setDate} value={props.date} />
+        <DatePicker onChange={setDate} value={props.date} />
         </Form.Item>
 
 

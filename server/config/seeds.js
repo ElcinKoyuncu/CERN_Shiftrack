@@ -35,7 +35,7 @@ await User.deleteMany({})
         lastName: 'tester',
         username:'testAdmin1',
         password: await bcrypt.hash('admin12345', 10),
-        email:'testAdmin1@testAdmin1.com',
+        email:'admin@admin.com',
         clockIn: '10.30',
         clockOut: '11.30',
         hoursWork: 10,

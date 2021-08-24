@@ -1,8 +1,6 @@
 import React from 'react';
 import jwt_decode from "jwt-decode";
 import axios from '../../utils/holidayApi';
-// import ListGroup from 'react-bootstrap/ListGroup'
-
 
 const EmployeeWelcome = ()=> {
     let decoded;
@@ -19,14 +17,14 @@ axios.get('https://api.festdays.dev/v1/holidays?country=US&size=100&format=json&
     });
 
     var showdate= new Date();
-    var displaytodaysdate=showdate.getDate()+'/'+(showdate.getDate()+1)+'/'+showdate.getFullYear();
+    // var displaytodaysdate=showdate.getDate()+'/'+(showdate.getDate()+1)+'/'+showdate.getFullYear();
     var dt=showdate.toDateString();
     return(
         <div>
             <center>
             <h1>Welcome, {decoded.data.username} </h1>
             <h2>{dt}</h2>
-            <h2></h2>
+
             </center>
         
         </div>

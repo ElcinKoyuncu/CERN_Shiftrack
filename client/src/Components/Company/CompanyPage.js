@@ -20,8 +20,8 @@ import MyCalendar from'../Calendar/MyCalendar';
 const AdminPage = () => {
     const [events, setEvents] = useState([{id:1,
         title: 'Test1',
-        start: new Date('August 23, 2021 03:24:00'),
-        end: new Date('August 24, 2021 03:24:00'),
+        start: new Date('August 31, 2021 03:24:00'),
+        end: new Date('August 31, 2021 03:24:00'),
         allDay: false,
         }
         // {id:2,
@@ -44,14 +44,14 @@ const AdminPage = () => {
     return (
         <div> 
             
-           <h2 class="text-center text-decoration-underline">C E R N</h2>
+           <h2 className="text-center text-decoration-underline">C E R N</h2>
            <Schedule onScheduleRequested={event => setEvents([...events,event])}/>
             
            <div>
                <h3>Staff Flow Chart</h3>
-               <div style={{ height: 250, width: 400}} class="border border-primary border:4px">
+               <div style={{ height: 250, width: 400}} className="border border-primary border:4px">
                <ReactFlow elements={elements} />
-               </div>
+            </div>
                <div>
                <MyCalendar events={events} />
            </div>
