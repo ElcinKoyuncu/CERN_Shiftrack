@@ -58,6 +58,7 @@ const AdminLogin = () => {
   };
   return (
     <>
+      <h2 class="font-weight-bold text-center text-danger">Admin Login</h2>
       <Form className="LoginFormDiv" noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login!
@@ -86,7 +87,7 @@ const AdminLogin = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
+        </Form.Group><br></br>
         <Button disabled={!(adminFormData.email && adminFormData.password)} type='submit' variant='success'>
           Login
         </Button>
