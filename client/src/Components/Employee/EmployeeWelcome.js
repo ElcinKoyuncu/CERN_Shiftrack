@@ -34,4 +34,3 @@ axios.get('https://api.festdays.dev/v1/holidays?country=US&size=100&format=json&
 }
 
 export default EmployeeWelcome;
-
