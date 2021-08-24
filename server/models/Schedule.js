@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 
 const scheduleSchema = new Schema({
   
-  emplolyee: {
+  employee: {
     type: String,
     required: true,
   },

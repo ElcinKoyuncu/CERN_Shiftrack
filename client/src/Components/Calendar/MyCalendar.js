@@ -7,17 +7,17 @@ import "./calendar.css";
 const localizer = momentLocalizer(moment)
 const events = [{id:1,
   title: 'Test1',
-  start: new Date('August 30, 2021 03:24:00'),
-  end: new Date('August 30, 2021 03:24:00'),
+  start: new Date('August 31, 2021 03:24:00'),
+  end: new Date('August 31, 2021 03:24:00'),
   allDay: false,
-  },
+  }
   // {id:2,
-  //   title: 'test2',
-  //   start: new Date('August 31, 2021 03:24:00'),
-  //   end: new Date('August 31, 2021 03:24:00'),
+  //   title: 'xshift',
+  //   start: new Date('August 27, 2021 03:24:00'),
+  //   end: new Date('August 28, 2021 03:24:00'),
   //   allDay: false,
-  //   }
-]
+    // }
+  ]
 
 const MyCalendar = props => (
   <div>

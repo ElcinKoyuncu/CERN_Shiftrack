@@ -4,8 +4,33 @@ import "./admin.css";
 import Schedule from '../Schedule/Schedule';
 import MyCalendar from'../Calendar/MyCalendar';
 
+// const eventsa = [{id:1,
+//     title: 'elcinshift',
+//     start: new Date('August 23, 2021 03:24:00'),
+//     end: new Date('August 24, 2021 03:24:00'),
+//     allDay: false,
+//     },
+//     {id:2,
+//       title: 'xshift',
+//       start: new Date('August 27, 2021 03:24:00'),
+//       end: new Date('August 28, 2021 03:24:00'),
+//       allDay: false,
+//       }]
+
 const AdminPage = () => {
-    const [events, setEvents] = useState([])
+    const [events, setEvents] = useState([{id:1,
+        title: 'Test1',
+        start: new Date('August 31, 2021 03:24:00'),
+        end: new Date('August 31, 2021 03:24:00'),
+        allDay: false,
+        }
+        // {id:2,
+        //   title: 'xshift',
+        //   start: new Date('August 27, 2021 03:24:00'),
+        //   end: new Date('August 28, 2021 03:24:00'),
+        //   allDay: false,
+        //   }
+    ])
 
     const elements = [
         { id: '1', type: 'input', data: { label: 'Manager Steve' }, position: { x: 150, y: 5 } },
