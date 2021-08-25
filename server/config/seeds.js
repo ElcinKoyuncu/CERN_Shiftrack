@@ -46,7 +46,7 @@ await User.deleteMany({})
     ];
   await Admin.deleteMany({})
       await Admin.insertMany(adminSeed)
-  
+      
   process.exit();
 
 })

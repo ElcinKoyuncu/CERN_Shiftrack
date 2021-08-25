@@ -35,7 +35,7 @@ const NavMenu = ()=> {
 
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand><img className= "pic" alt="" src = "assets/cern.png"/>n
+            <Navbar.Brand><img className= "pic" alt="" src = "assets/cern.png"/>
             </Navbar.Brand>
             <div class="d-flex justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -44,6 +44,7 @@ const NavMenu = ()=> {
               {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
               {/* <Nav.Link href="/login">LOGIN</Nav.Link> */}
               <Nav.Link href="/admin">ADMIN</Nav.Link>
+              {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
             </Nav>
             </Navbar.Collapse>
             </div>

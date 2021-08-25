@@ -23,10 +23,11 @@ export const LOGIN_ADMIN = gql`
   }
 `;
 
+
 export const ADD_USER = gql`
-  mutation addUser($email: String!, $password: String!) {
-    addUser(email: $email, password: $password) {
-      token
+  mutation addUser($firstName: String!, $lastName: String!,$email: String!, $password: String!) {
+    addUser(firstName: $firstName, lastName: $lastName,email: $email, password: $password) {
+      adminToken
       user {
         _id
         email
