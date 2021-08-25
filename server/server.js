@@ -8,8 +8,8 @@ const { authMiddleware } = require('./utils/auth');
 
 const db = require('./config/connection');
 
-
-const PORT = process.env.PORT || 3001;
+require("dotenv").config();
+const PORT = process.env.PORT ||5000;
 const app = express();
 
 const server = new ApolloServer({

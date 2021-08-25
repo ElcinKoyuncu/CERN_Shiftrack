@@ -44,6 +44,7 @@ const NavMenu = ()=> {
               {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
               {/* <Nav.Link href="/login">LOGIN</Nav.Link> */}
               <Nav.Link href="/admin">ADMIN</Nav.Link>
+              {/* <Nav.Link href="/signup">SIGN UP</Nav.Link> */}
             </Nav>
             </Navbar.Collapse>
             </div>

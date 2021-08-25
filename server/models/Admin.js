@@ -22,30 +22,30 @@ const adminSchema = new Schema({
     type: String,
     required: true,
     minlength: 5
-  },
-  clockIn: {
-    type: String,
-    required: true
-    
-  },
-  clockOut: {
-      type: String,
-      required: true
-      
-  },
-  hoursWork: {
-    type: String,
-    required: true
-  
-  },
-  role: {
-    type: String,
-    required: true
-  },
-  rto: {
-    type: String,
-    required: true
   }
+  // clockIn: {
+  //   type: String,
+  //   required: true
+    
+  // },
+  // clockOut: {
+  //     type: String,
+  //     required: true
+      
+  // },
+  // hoursWork: {
+  //   type: String,
+  //   required: true
+  
+  // },
+  // role: {
+  //   type: String,
+  //   required: true
+  // },
+  // rto: {
+  //   type: String,
+  //   required: true
+  // }
 });
 
 // set up pre-save middleware to create password

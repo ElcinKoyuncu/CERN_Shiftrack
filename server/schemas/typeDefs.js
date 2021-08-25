@@ -7,8 +7,6 @@ type Mutation {
     lastName: String!
     email: String!
     password: String!
-    role: String!
-    username: String!
   ): Auth
   
   updateUser(
@@ -39,8 +37,8 @@ type User {
     username: String
     password: String
     email: String
-    clockIn: String
-    clockOut: String
+   firstName: String
+    lastName: String
 
   }
   type clockInOut {
